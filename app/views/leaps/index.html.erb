@@ -5,16 +5,12 @@
     <th>Distance</th>
     <th>Type</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @leaps.each do |leap| %>
   <tr>
     <td><%= leap.distance %></td>
     <td><%= leap.leap_type %></td>
-    <td><%= link_to 'Show', leap %></td>
-    <td><%= link_to 'Edit', edit_leap_path(leap) %></td>
     <td><%= link_to 'Destroy', leap, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

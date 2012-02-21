@@ -1,8 +1,15 @@
 Leapforloaves::Application.routes.draw do
   
-  resources :leaps
   resources :game
+  resources :leaps
+  match 'leap' => 'leaps#new', :as => :leap
+  
   resources :welcome
+  match 'step1' => 'welcome#step1', :as => :step1
+  match 'step2' => 'welcome#step2', :as => :step2
+  match 'step3' => 'welcome#step3', :as => :step3
+  match 'step4' => 'welcome#step4', :as => :step4
+  match 'about' => 'welcome#about', :as => :about
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
