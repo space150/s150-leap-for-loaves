@@ -50,6 +50,7 @@ var debug = {
 
 var game = {
 	isRecording: false,
+	countdownTimeLeft: 3,
 	init: function () {
 		this.initJumper();
 		this.initHoldButton();
@@ -69,12 +70,29 @@ var game = {
 		this.completeSession();
 	},
 	startCountdown: function () {
-
-		jumper.startup();
+		$('#message-output').html('Get ready to leap in 3...');
+		setTimeout(this.countdownTick.bind(this), 1000);
+	},
+	countdownTick: function () {
+		this.countdownTimeLeft -= 1;
+		$('#message-output').html(this.countdownTimeLeft + '...');
+			
+		if ( this.countdownTimeLeft > 0 )
+		{
+			setTimeout(this.countdownTick.bind(this), 1000);
+		}
+		else
+		{
+			$('#message-output').html('GO! GO! GO!');
+			jumper.startup();
+		}	
 	},
 	completeSession: function () {
 		this.isRecording = false;
+		this.countdownTimeLeft = 3.0,
 		jumper.shutdown();
+		
+		$('#message-output').html('Get ready to leap!');
 	},
 	initJumper: function () {
 		jumper.registerForLiftoff(this.liftoff.bind(this));
