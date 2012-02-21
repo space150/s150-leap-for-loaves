@@ -3,7 +3,7 @@ class LeapsController < ApplicationController
   # GET /leaps
   # GET /leaps.json
   def index
-    @leaps = Leap.all
+    @leaps = Leap.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
