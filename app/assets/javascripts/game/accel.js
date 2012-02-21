@@ -39,7 +39,12 @@ var accel = {
     },
     register: function(func) {
         this.handlers.push(func);
-    }
+    },
+	hasMotionData: function () {
+		if ( !window.DeviceMotionEvent )
+			return false;
+		return true;
+	}
 };
 
 this.accel = accel;

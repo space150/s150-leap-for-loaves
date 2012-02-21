@@ -1,15 +1,12 @@
 class WelcomeController < ApplicationController
-  
-  def index
-    # render index.html.erb
-  end
+  caches_page :about, :index, :step2, :step3, :step4
   
   def about
     # render about.html.erb
   end
   
-  def step1
-    # render step1.html.erb
+  def index
+    # render index.html.erb
   end
   
   def step2

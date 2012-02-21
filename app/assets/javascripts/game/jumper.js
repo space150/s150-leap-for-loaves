@@ -15,8 +15,6 @@ var jumper = {
 	isAcquiringInitialWindow: true,
     init: function () {
 		accel.register(this.moved.bind(this));
-		if ( !window.DeviceMotionEvent )
-			alert('motion data unavailable');		
     },
     registerForLiftoff: function (func) {
         this.liftoffHandlers.push(func);
