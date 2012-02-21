@@ -5,8 +5,8 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'pg' # for heroku
+gem 'pg'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,7 +30,6 @@ gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
