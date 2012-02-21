@@ -3,7 +3,7 @@
 var sparklines = {
     speed: 10,
     lines: [],
-    running: true,
+    running: false,
     canvas: {},
     init: function(el){
         var _this = this;

@@ -12,10 +12,26 @@ var jumper = {
 	delta: { x: 0, y: 0, z: 0 },
 	threshold: { x: 0.5, y: 0.5, z: 0.5 },
 	isAirborne: false,
-	isAcquiringInitialWindow: true,
+	isAcquiringInitialWindow: false,
+	isEnabled: false,
     init: function () {
 		accel.register(this.moved.bind(this));
     },
+	shutdown: function () {
+		this.isAirborne = false;
+		this.isEnabled = false;
+		this.isAcquiringInitialWindow = false;
+
+		this.shortHistoryPoints = [];
+		this.shortHistoryAverage = { x: 0, y: 0, z: 0 };
+		
+		this.fullHistoryPoints = [];
+		this.fullHistoryAverage = { x: 0, y: 0, z: 0 };
+	},
+	startup: function () {
+		this.isAcquiringInitialWindow = true;
+		this.isEnabled = true;
+	},
     registerForLiftoff: function (func) {
         this.liftoffHandlers.push(func);
     },
@@ -31,6 +47,8 @@ var jumper = {
 				this.delta.z > this.threshold.z;
 	},
 	moved: function (e) {
+		if ( !this.isEnabled ) return;
+		
 		var current = { x: e.accel.x, y: e.accel.y, z: e.accel.z };
 					
 		this.accumulateFullHistory( current );
@@ -56,8 +74,6 @@ var jumper = {
 				this.isAirborne = false;
 			}		
 		}
-		
-		$("#mm").html( "delta [" + this.toString() + "]" );
     },
 	calculateThreshold: function () {
 		// modify the threshold to include any full history fluctuations

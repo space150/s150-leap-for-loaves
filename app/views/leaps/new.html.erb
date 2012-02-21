@@ -1,5 +1,20 @@
-<h1>New leap</h1>
+<div class="row">
+	<div class="span12">
+		<h1>Get ready to leap!</h1>
+		<p>Donec id neque et libero accumsan imperdiet in et nisl. Curabitur leo metus, viverra et interdum id, interdum sed dui.</p>
+		
+		<p><button id="hold-button" class="btn btn-large btn-primary">PRESS HERE TO START</button></p>
+		
+		<div id="container">
+			<div id="hold-feedback" style="font-family:monospace">button not pressed.</div>
+			<div id="jump-feedback" style="font-family:monospace">currently not airborne.</div>
+		    <canvas id="sparks" width="280" height="120"></canvas>
+		    <div id="mm" style="font-family:monospace">no accel data.</div>
+		</div>
+		
+		<p><%= link_to 'Back', root_url, :class => 'btn btn-large' %></p>
+		
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', leaps_path %>
+<%= javascript_include_tag "leap" %>
