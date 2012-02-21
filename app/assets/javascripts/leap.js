@@ -24,8 +24,6 @@ var game = {
 	endGame: function () {
 		$('#hold-feedback').html('button not pressed.');
 		this.completeSession();
-		
-		this.submitScore( 12.0454 );
 	},
 	startCountdown: function () {
 		if ( this.gameRunning ) return;
