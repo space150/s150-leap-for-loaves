@@ -49,7 +49,8 @@ var debug = {
 };
 
 var game = {
-	isRecording: false,
+	timer: null,
+	gameRunning: false,
 	countdownTimeLeft: 3,
 	init: function () {
 		this.initJumper();
@@ -61,26 +62,28 @@ var game = {
 	},
 	startGame: function () {
 		$('#hold-feedback').html('<strong>PRESSED!</strong>');
-		sparklines.running = true;
 		this.startCountdown();
 	},
 	endGame: function () {
 		$('#hold-feedback').html('button not pressed.');
-		sparklines.running = false;
 		this.completeSession();
 	},
 	startCountdown: function () {
-		$('#message-output').html('Get ready to leap in 3...');
-		setTimeout(this.countdownTick.bind(this), 1000);
+		if ( this.gameRunning ) return;
+		
+		this.gameRunning = true;
+		$('#message-output').html('Leap in 3...');
+		this.timer = setTimeout(this.countdownTick.bind(this), 1000);
+		sparklines.running = true;
 	},
 	countdownTick: function () {
+		if ( !this.gameRunning ) return;
+		
 		this.countdownTimeLeft -= 1;
-		$('#message-output').html(this.countdownTimeLeft + '...');
+		$('#message-output').html('Leap in ' + this.countdownTimeLeft + '...');
 			
 		if ( this.countdownTimeLeft > 0 )
-		{
-			setTimeout(this.countdownTick.bind(this), 1000);
-		}
+			this.timer = setTimeout(this.countdownTick.bind(this), 1000);
 		else
 		{
 			$('#message-output').html('GO! GO! GO!');
@@ -88,9 +91,13 @@ var game = {
 		}	
 	},
 	completeSession: function () {
-		this.isRecording = false;
+		if ( !this.gameRunning ) return;
+		
+		sparklines.running = false;
+		this.gameRunning = false;
 		this.countdownTimeLeft = 3.0,
 		jumper.shutdown();
+		clearTimeout(this.timer);
 		
 		$('#message-output').html('Get ready to leap!');
 	},
@@ -99,13 +106,13 @@ var game = {
 		jumper.registerForLanding(this.landed.bind(this));
 	},
 	liftoff: function () {
-		if ( this.isRecording )
+		if ( this.gameRunning )
 		{
 			$('#jump-feedback').html('<strong>JUMPING!</strong>');
 		}
 	},
 	landed: function () {
-		if ( this.isRecording )
+		if ( this.gameRunning )
 		{
 			$('#jump-feedback').html('currently not airborne.');
 			this.completeSession();
