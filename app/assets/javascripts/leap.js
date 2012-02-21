@@ -52,6 +52,7 @@ var game = {
 	timer: null,
 	gameRunning: false,
 	countdownTimeLeft: 3,
+	liftoffDate: null,
 	init: function () {
 		this.initJumper();
 		this.initHoldButton();
@@ -102,7 +103,9 @@ var game = {
 		
 		sparklines.running = false;
 		this.gameRunning = false;
-		this.countdownTimeLeft = 3.0,
+		this.countdownTimeLeft = 3.0;
+		this.liftoffDate = null;
+		
 		jumper.shutdown();
 		clearTimeout(this.timer);
 		
@@ -115,13 +118,18 @@ var game = {
 	liftoff: function () {
 		if ( this.gameRunning )
 		{
+			this.liftoffDate = new Date();
 			$('#jump-feedback').html('<strong>JUMPING!</strong>');
 		}
 	},
 	landed: function () {
 		if ( this.gameRunning )
 		{
-			$('#jump-feedback').html('currently not airborne.');
+			// get the ms diff for the liftoff/landing
+			var now = new Date();
+			var diff = now.getTime() - this.liftoffDate.getTime();
+			
+			$('#jump-feedback').html('Last jump was ' + diff + 'ms in length');
 			this.completeSession();
 		}
 	}
