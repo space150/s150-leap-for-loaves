@@ -2,51 +2,7 @@
 //= require game/accel
 //= require game/jumper
 //= require game/sparklines
-
-var debug = {
-    lines: [],
-    init: function() {
-        this.initAccel();
-        this.initSparklines();
-        $("#onoff").click(function(){
-            sparklines.running = !sparklines.running;
-        })
-    },
-    initAccel: function() {
-        accel.register(this.moved.bind(this));
-    },
-    initSparklines: function() {
-        var linesData = [
-                {axis:"x", col:"red", xOff: 20},
-                {axis:"y", col:"green", xOff: 40},
-                {axis:"z", col:"yellow", xOff: 60}
-            ],
-            _this = this;
-
-        sparklines.init("sparks");
-        
-        $.each(linesData, function(i){
-            var line = new sparklines.line(this.axis, this.col, this.xOff);
-            sparklines.addLine(line);
-            _this.lines.push(line);
-        });
-    },
-	initJumper: function () {
-		jumper.registerForLiftoff(this.liftoff);
-		jumper.registerForLanding(this.landed);
-	},
-    moved: function(e) {
-        var lines = this.lines;
-        $.each(lines, function(i){
-            this.lastVal = this.value;
-        });
-        lines[0].value = e.accel.x + 25;
-        lines[1].value = e.accel.y + 45;
-        lines[2].value = e.accel.z + 70;
-		
-		$("#mm").html( "delta [" + jumper.toString() + "]" );
-    }
-};
+//= require game/debug
 
 var game = {
 	timer: null,
@@ -68,6 +24,8 @@ var game = {
 	endGame: function () {
 		$('#hold-feedback').html('button not pressed.');
 		this.completeSession();
+		
+		this.submitScore( 12.0454 );
 	},
 	startCountdown: function () {
 		if ( this.gameRunning ) return;
@@ -94,7 +52,6 @@ var game = {
 		else
 		{
 			$('#message-output').html('GO! GO! GO!');
-			
 			jumper.enableJumping();
 		}	
 	},
@@ -127,15 +84,34 @@ var game = {
 		{
 			// get the ms diff for the liftoff/landing
 			var now = new Date();
-			var diff = now.getTime() - this.liftoffDate.getTime();
+			var d1 = now.getTime() - this.liftoffDate.getTime();
+			var d2 = d1*0.16;
+			var inches = d2*0.0393700787;
+
+			this.updateViewForScore( inches );
+			this.submitScore( inches );
 			
-			$('#jump-feedback').html('Last jump was ' + diff + 'ms in length');
 			this.completeSession();
 		}
+	},
+	updateViewForScore: function ( inches ) {
+		$('#jump-feedback').html('Last leap was ' + inches + ' inches in height');
+	},
+	submitScore: function ( inches ) {	
+		$.ajax({
+			type: 'POST',
+			url: '/leaps.json',
+			data: { inches: inches },
+			success: function ( data ) {
+				console.log('data: ' + data);
+			},
+			error: function ( error ) {
+				console.log('error: ' + error);
+			}
+		});
 	}
 };
 
 $(document).ready(function(){
-    debug.init();
 	game.init();
 });

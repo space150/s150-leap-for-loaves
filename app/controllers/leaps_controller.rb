@@ -1,4 +1,5 @@
 class LeapsController < ApplicationController
+  
   # GET /leaps
   # GET /leaps.json
   def index
@@ -24,7 +25,7 @@ class LeapsController < ApplicationController
   # POST /leaps
   # POST /leaps.json
   def create
-    @leap = Leap.new(params[:leap])
+    @leap = Leap.new(:inches => params[:inches])
 
     respond_to do |format|
       if @leap.save
@@ -36,16 +37,5 @@ class LeapsController < ApplicationController
       end
     end
   end
-
-  # DELETE /leaps/1
-  # DELETE /leaps/1.json
-  def destroy
-    @leap = Leap.find(params[:id])
-    @leap.destroy
-
-    respond_to do |format|
-      format.html { redirect_to leaps_url }
-      format.json { head :no_content }
-    end
-  end
+  
 end

@@ -1,5 +1,6 @@
 class Leap < ActiveRecord::Base
   
-  validates_presence_of :distance, :leap_type
+  attr_accessible :inches
+  validates_presence_of :inches
   
 end
