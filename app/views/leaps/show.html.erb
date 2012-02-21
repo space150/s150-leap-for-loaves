@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Distance:</b>
+  <%= @leap.distance %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @leap.leap_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_leap_path(@leap) %> |
+<%= link_to 'Back', leaps_path %>

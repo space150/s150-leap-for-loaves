@@ -1,0 +1,2 @@
+module LeapsHelper
+end
