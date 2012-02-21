@@ -73,8 +73,11 @@ var game = {
 		
 		this.gameRunning = true;
 		$('#message-output').html('Leap in 3...');
+		clearTimeout(this.timer);
 		this.timer = setTimeout(this.countdownTick.bind(this), 1000);
 		sparklines.running = true;
+		
+		jumper.startup();
 	},
 	countdownTick: function () {
 		if ( !this.gameRunning ) return;
@@ -83,11 +86,15 @@ var game = {
 		$('#message-output').html('Leap in ' + this.countdownTimeLeft + '...');
 			
 		if ( this.countdownTimeLeft > 0 )
-			this.timer = setTimeout(this.countdownTick.bind(this), 1000);
+		{
+			clearTimeout(this.timer);
+			this.timer = setTimeout(this.countdownTick.bind(this), 1000);			
+		}
 		else
 		{
 			$('#message-output').html('GO! GO! GO!');
-			jumper.startup();
+			
+			jumper.enableJumping();
 		}	
 	},
 	completeSession: function () {

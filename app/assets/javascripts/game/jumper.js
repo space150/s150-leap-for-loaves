@@ -14,6 +14,7 @@ var jumper = {
 	isAirborne: false,
 	isAcquiringInitialWindow: false,
 	isEnabled: false,
+	isJumpingEnabled: false,
     init: function () {
 		accel.register(this.moved.bind(this));
     },
@@ -33,6 +34,9 @@ var jumper = {
 	startup: function () {
 		this.isAcquiringInitialWindow = true;
 		this.isEnabled = true;
+	},
+	enableJumping: function () {
+		this.isJumpingEnabled = true;
 	},
     registerForLiftoff: function (func) {
         this.liftoffHandlers.push(func);
@@ -59,8 +63,8 @@ var jumper = {
 		//if ( !this.isAirborne )
 		//	this.calculateThreshold();
 		
-		// if we aren't acquiring our initial window, check for the jump start/stop states
-		if ( !this.isAcquiringInitialWindow ) {
+		// if we aren't acquiring our initial window and we have enabled jumping, check for the jump start/stop states
+		if ( this.isJumpingEnabled && !this.isAcquiringInitialWindow ) {
 			var isJumping = this.jumping(); 
 			if ( isJumping && !this.isAirborne ) {
 				for ( var i = 0, j = this.liftoffHandlers.length; i < j; i++ ) {
