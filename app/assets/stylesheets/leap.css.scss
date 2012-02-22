@@ -1,15 +1,57 @@
 #sparks {
 	background-color: #000;
 }
-.leap-item {
-	background-color: #eee;
-	text-align: center;
-	margin-bottom: 30px;
-}
 
-#hold-button {
-	display: inline-block;
-	width: 120px;
-	height: 80px;
-	background: url('/img/fpo-press-here-button.png') no-repeat;
+.leaderboard {
+	/* nothing */
 }
+	.leaderboard .item {
+		background-color: #eee;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+.leap {
+	/* nothing */
+}
+	.leap .measuring {
+		position: relative;
+		background-color: #eee;
+		float: left;
+		width: 30%;
+		height: 300px;
+	}
+		.leap .measuring .ruler {
+			position: absolute;
+			top: 10px;
+			left: 10%;
+			height: 280px;
+			overflow: hidden;
+		}
+		
+	.leap .actions {
+		position: relative;
+		background-color: #e0e0e0;
+		float: right;
+		width: 70%;
+		height: 300px;
+	}
+		.leap .actions .output {
+			position: absolute;
+			top: 0px;
+			right: 10%;
+			padding-left: 10%;
+			text-align: right;
+		}
+		.leap .actions .button {
+			position: absolute;
+			bottom: 0px;
+			right: 10%;
+			height: 80px;
+		}
+			.leap .actions .button a {
+				display: inline-block;
+				width: 120px;
+				height: 80px;
+				background: url('/img/fpo-press-here-button.png') no-repeat;				
+			}

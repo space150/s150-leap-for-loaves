@@ -1,17 +1,28 @@
 <div class="row">
-	<div class="span12">
-		<h1 id="message-output">Get ready to leap!</h1>
-		<div><a id="hold-button"></a></div>
-		<div id="container">
-			<div id="hold-feedback" style="font-family:monospace">button not pressed.</div>
-			<div id="jump-feedback" style="font-family:monospace">currently not airborne.</div>
-		    <canvas id="sparks" width="280" height="120"></canvas>
-		    <div id="mm" style="font-family:monospace">no accel data.</div>
-		</div>
-		
+	<div class="leap span12">
 		<p><%= link_to 'Back', leaderboard_url, :class => 'btn btn-large' %></p>
-		
+		<div class="measuring">
+			<div class="ruler">
+				<ul id="number-board" class="unstyled">
+					<% 50.downto(1) do |number| %>
+						<li><%= '%02d' % number %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		<div class="actions clearfix">
+			<div class="output">
+				<h1 id="message-output">Get ready to leap!</h1>
+			</div>
+			<div class="button">
+				<a id="hold-button"></a>
+			</div>
+		</div>
 	</div>
 </div>
+
+<% if params[:v] %>
+	<%= render :partial => 'debug' %>
+<% end%>
 
 <%= javascript_include_tag "leap" %>

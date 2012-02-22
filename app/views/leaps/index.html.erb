@@ -14,19 +14,21 @@
 	</div>
 </div>
 
-<div class="row">
-	<% col = 0 -%>
-	<% @leaps.each do |leap| %>
-		<div class="span2 leap-item">
-			<h4><%= format_distance leap.inches %></h4>
-			<p class="small"><%= leap.created_at.to_s(:short) %></p>
-		</div>
-	  	<% if col >= 5; col = 0; %>
-			</div><div class="row">
-		<% else
-			col += 1
-		end %>
-	<% end %>
+<div class="leaderboard">
+	<div class="row">
+		<% col = 0 -%>
+		<% @leaps.each do |leap| %>
+			<div class="span2 item">
+				<h4><%= format_distance leap.inches %></h4>
+				<p class="small"><%= leap.created_at.to_s(:short) %></p>
+			</div>
+		  	<% if col >= 5; col = 0; %>
+				</div><div class="row">
+			<% else
+				col += 1
+			end %>
+		<% end %>
+	</div>
 </div>
 
 <%= page_navigation_links @leaps %>

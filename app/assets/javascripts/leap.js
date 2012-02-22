@@ -1,10 +1,9 @@
 //= require application
 //= require game/accel
 //= require game/jumper
-//= require game/sparklines
 //= require game/debug
 
-var game = {
+var leap = {
 	timer: null,
 	gameRunning: false,
 	countdownTimeLeft: 3,
@@ -111,5 +110,5 @@ var game = {
 };
 
 $(document).ready(function(){
-	game.init();
+	leap.init();
 });

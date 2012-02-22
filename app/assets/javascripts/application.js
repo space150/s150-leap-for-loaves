@@ -1,3 +1,3 @@
-//= require lib/es5-shim-min
+//= require lib/es5-shim
 //= require jquery
 //= require jquery_ujs

@@ -131,7 +131,7 @@ var jumper = {
 		if ( this.isAcquiringInitialWindow && this.fullHistoryPoints.length >= this.fullHistoryCount ) {
 			// we are good to go
 			this.isAcquiringInitialWindow = false;
-			console.log("initial window acquired!");
+			//console.log("initial window acquired!");
 		}
 	},
 	toString: function() {
