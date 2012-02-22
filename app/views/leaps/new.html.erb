@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="leap span12">
-		<p><%= link_to 'Back', leaderboard_url, :class => 'btn btn-large' %></p>
+	<div id="leap" class="span12">
+		<p><%= link_to 'Leaderboard', leaderboard_url, :class => 'btn btn-large' %></p>
 		<div class="measuring">
 			<div class="ruler">
-				<ul id="number-board" class="unstyled">
+				<ul id="number-board" class="unstyled numbers">
 					<% 50.downto(1) do |number| %>
 						<li><%= '%02d' % number %></li>
 					<% end %>
@@ -14,15 +14,22 @@
 			<div class="output">
 				<h1 id="message-output">Get ready to leap!</h1>
 			</div>
+			<% if params[:v] %>
+				<%= render :partial => 'debug' %>
+			<% end%>
 			<div class="button">
 				<a id="hold-button"></a>
 			</div>
 		</div>
 	</div>
+	<div id="result" class="span12">
+		<h1>You added <span id="result-inches">XX"</span> for a grand total of <span id="result-total-inches">XX"</span></h1>
+		<p>
+			<%= link_to 'Jump Again', leap_url, :class => 'btn btn-large' %>
+			or
+			<%= link_to 'Leaderboard', leaderboard_url, :class => 'btn btn-large btn-primary' %>
+		</p>
+	</div>
 </div>
-
-<% if params[:v] %>
-	<%= render :partial => 'debug' %>
-<% end%>
 
 <%= javascript_include_tag "leap" %>

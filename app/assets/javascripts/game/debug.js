@@ -1,3 +1,8 @@
+//= require game/motionDetector
+//= require game/jumpDetector
+
+// this provides motion and jump debug output
+
 (function(){
 	
 var sparklines = {
@@ -52,11 +57,11 @@ this.sparklines = sparklines;
 var debug = {
     lines: [],
     init: function() {
-		this.initAccel();
+		this.initMotionDetector();
         this.initSparklines();
     },
-    initAccel: function() {
-        accel.register(this.moved.bind(this));
+    initMotionDetector: function() {
+        motionDetector.register(this.moved.bind(this));
     },
     initSparklines: function() {
         var linesData = [
@@ -74,10 +79,6 @@ var debug = {
             _this.lines.push(line);
         });
     },
-	initJumper: function () {
-		jumper.registerForLiftoff(this.liftoff);
-		jumper.registerForLanding(this.landed);
-	},
     moved: function(e) {
         var lines = this.lines;
         $.each(lines, function(i){
@@ -87,7 +88,7 @@ var debug = {
         lines[1].value = e.accel.y + 45;
         lines[2].value = e.accel.z + 70;
 		
-		$("#mm").html( "delta [" + jumper.toString() + "]" );
+		$("#mm").html( "delta [" + jumpDetector.toString() + "]" );
     }
 };
 

@@ -1,6 +1,11 @@
+//= require game/motionDetector
+
+// the jump detector interprets data coming from the motion detector and attempts to
+// determine when a user "jump" has occurred
+
 (function(){
 
-var jumper = {
+var jumpDetector = {
 	liftoffHandlers: [],
     landedHandlers: [],
 	shortHistoryPoints: [],
@@ -16,7 +21,7 @@ var jumper = {
 	isEnabled: false,
 	isJumpingEnabled: false,
     init: function () {
-		accel.register(this.moved.bind(this));
+		motionDetector.register(this.moved.bind(this));
     },
 	shutdown: function () {
 		this.isAirborne = false;
@@ -152,7 +157,7 @@ var jumper = {
     }
 };
 
-this.jumper = jumper;
-jumper.init();
+this.jumpDetector = jumpDetector;
+jumpDetector.init();
 
 })();

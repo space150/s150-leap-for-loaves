@@ -1,6 +1,8 @@
 (function(){
+	
+// uses HTML5 DeviceMotionEvent to gather device accelerometer data
 
-var accel = {
+var motionDetector = {
     handlers: [],
     support: window.DeviceMotionEvent,
     init: function() {
@@ -47,7 +49,7 @@ var accel = {
 	}
 };
 
-this.accel = accel;
-accel.init();
+this.motionDetector = motionDetector;
+motionDetector.init();
 
 })();

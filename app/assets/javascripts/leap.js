@@ -1,7 +1,11 @@
 //= require application
-//= require game/accel
-//= require game/jumper
+//= require game/motionDetector
+//= require game/jumpDetector
+//= require game/liftoffAnimation
+//= require game/distanceCalculation
 //= require game/debug
+
+// leap is the main leap game entry point
 
 var leap = {
 	timer: null,
@@ -9,7 +13,7 @@ var leap = {
 	countdownTimeLeft: 3,
 	liftoffDate: null,
 	init: function () {
-		this.initJumper();
+		this.initJumpDetector();
 		this.initHoldButton();
 	},
 	initHoldButton: function () {
@@ -33,7 +37,7 @@ var leap = {
 		this.timer = setTimeout(this.countdownTick.bind(this), 1000);
 		sparklines.running = true;
 		
-		jumper.startup();
+		jumpDetector.startup();
 	},
 	countdownTick: function () {
 		if ( !this.gameRunning ) return;
@@ -49,7 +53,7 @@ var leap = {
 		else
 		{
 			$('#message-output').html('GO! GO! GO!');
-			jumper.enableJumping();
+			jumpDetector.enableJumping();
 		}	
 	},
 	completeSession: function () {
@@ -60,30 +64,32 @@ var leap = {
 		this.countdownTimeLeft = 3.0;
 		this.liftoffDate = null;
 		
-		jumper.shutdown();
+		jumpDetector.shutdown();
 		clearTimeout(this.timer);
 		
 		$('#message-output').html('Get ready to leap!');
 	},
-	initJumper: function () {
-		jumper.registerForLiftoff(this.liftoff.bind(this));
-		jumper.registerForLanding(this.landed.bind(this));
+	initJumpDetector: function () {
+		jumpDetector.registerForLiftoff(this.liftoff.bind(this));
+		jumpDetector.registerForLanding(this.landed.bind(this));
 	},
 	liftoff: function () {
 		if ( this.gameRunning )
 		{
 			this.liftoffDate = new Date();
 			$('#jump-feedback').html('<strong>JUMPING!</strong>');
+			
+			// start the rocketship animation
+			liftoffAnimation.startLiftoffWithDate( this.liftoffDate );
 		}
 	},
 	landed: function () {
 		if ( this.gameRunning )
 		{
-			// get the ms diff for the liftoff/landing
-			var now = new Date();
-			var d1 = now.getTime() - this.liftoffDate.getTime();
-			var d2 = d1*0.16;
-			var inches = d2*0.0393700787;
+			var inches = calculateInchesFromNowToDate( +new Date(), +this.liftoffDate );
+			
+			// complete the liftoff animation
+			liftoffAnimation.landWithDistance( inches );
 
 			this.updateViewForScore( inches );
 			this.submitScore( inches );

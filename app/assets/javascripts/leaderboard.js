@@ -1,9 +1,9 @@
 //= require application
-//= require game/accel
+//= require game/motionDetector
 
 var leaderboard = {
     init: function() {
-		if ( !accel.hasMotionData() )
+		if ( !motionDetector.hasMotionData() )
 			$('#start-panel').hide();
     }
 };
