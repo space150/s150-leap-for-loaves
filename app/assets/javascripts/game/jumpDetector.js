@@ -26,6 +26,7 @@ var jumpDetector = {
 	shutdown: function () {
 		this.isAirborne = false;
 		this.isEnabled = false;
+		this.isJumpingEnabled = false;
 		this.isAcquiringInitialWindow = false;
 
 		this.shortHistoryPoints = [];
@@ -39,6 +40,7 @@ var jumpDetector = {
 	startup: function () {
 		this.isAcquiringInitialWindow = true;
 		this.isEnabled = true;
+		this.isJumpingEnabled = false;
 	},
 	enableJumping: function () {
 		this.isJumpingEnabled = true;
