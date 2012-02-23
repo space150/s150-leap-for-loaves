@@ -32,15 +32,22 @@ var liftoffAnimation = {
 		this.isRunning = true;
 		animLoop( this.animationTick.bind(this), this.numberBoard );
 	},
-	animationTick: function( deltaT, now ) {
-		var inches = calculateInchesFromNowToDate( now, this.startingDate );
-		var targetPosition = (-this.boardHeight) + (this.distancePerEntry * inches);
-		this.numberBoard.css( 'marginTop', targetPosition );
-		
-		if ( this.isRunning && inches < this.totalEntryCount )
-			return true;
+	animationTick: function( deltaTime, now ) {
+		if ( this.isRunning )
+		{
+			var inches = calculateInchesFromNowToDate( now, this.startingDate );
+			var targetPosition = (-this.boardHeight) + (this.distancePerEntry * inches);
+			this.numberBoard.css( 'marginTop', targetPosition );
+
+			if ( inches < this.totalEntryCount )
+				return true;
+			else
+				return false;			
+		}
 		else
+		{
 			return false;
+		}
 	}, 
 	landWithDistance: function ( distance ) {
 		this.isRunning = false;
