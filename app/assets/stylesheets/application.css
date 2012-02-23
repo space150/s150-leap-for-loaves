@@ -12,5 +12,6 @@
  *= require lib/bootstrap
  *= require lib/bootstrap-responsive
  *= require global
- *= require_tree .
+ *= require leap
+ *= require leaderboard
 */

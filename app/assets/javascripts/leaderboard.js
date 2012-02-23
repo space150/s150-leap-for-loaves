@@ -3,8 +3,8 @@
 
 var leaderboard = {
     init: function() {
-		if ( !motionDetector.hasMotionData() )
-			$('#start-panel').hide();
+		if ( motionDetector.hasMotionData() )
+			$('#start-panel').show();
     }
 };
 

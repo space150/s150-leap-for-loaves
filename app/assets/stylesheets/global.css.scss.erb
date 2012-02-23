@@ -1,4 +1,84 @@
 
 body {
-	//background: url(<%= asset_path 'global-background.png' %>) no-repeat center;
+	background-color: #00d476;
+	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
+	background-size: 1080px 1080px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment: fixed;
+
+	@media (max-width: 480px) {
+		background-size: 540px 540px;
+	}
+}
+
+/* LOGOS --------------------------------------------------------------- */
+
+#logo {
+	display: block;
+	overflow: hidden;
+	width: 388px;
+	height: 278px;
+	text-indent:-9999px;
+	background: url(<%= asset_path 'welcome-logo.png' %>) no-repeat;
+
+	@media (max-width: 480px) {
+		width: 194px;
+		height: 139px;
+		background-size: 194px 139px;	
+	}
+	
+}
+
+/* BUTTONS --------------------------------------------------------------- */
+
+a.button {	
+	display: inline-block;
+	line-height: 68px;
+	min-width: 126px;
+	padding: 0 29px;
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+	background-image: url(<%= asset_path 'global-button-background.png' %>);
+	background-position: 0px 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    @media (max-width: 480px) {
+		line-height: 34px;
+		min-width: 63px;
+		padding: 0 14px;
+		font-size: 12px;
+    }
+
+    i.arrow {
+		display: inline-block;
+		width: 20px;
+		height: 30px;
+		vertical-align: middle;
+		background: url(<%= asset_path 'global-button-arrow.png' %>) no-repeat right center;
+		padding-left: 10px;
+
+		@media (max-width: 480px) {
+			width: 10px;
+			height: 15px;
+			background-size: 10px 15px;
+		}
+	}
+}
+
+a.button:hover, a.button:active {
+	background-position: 0px 68px;
+	text-decoration: none;
+	-moz-box-shadow: 0 0 20px 1px #fff;
+	-webkit-box-shadow: 0 0 20px 1px #fff;
+	box-shadow: 0 0 20px 1px #fff;
+}
+
+a.icon.help {
+
 }

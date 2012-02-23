@@ -1,20 +1,22 @@
-<div class="row">
-	<div class="span12">
-		<h1>Leaderboard</h1>
-		<h2><%= Leap.formatted_total_inches %> Total</h2>
-		<p>Donec id neque et libero accumsan imperdiet in et nisl. Curabitur leo metus, viverra et interdum id, interdum sed dui.</p>
-		
-		<p>
-			<%= link_to 'About', about_url, :class => 'btn btn-large' %>
-			<span id="start-panel">
-				or
-				<%= link_to 'Start', leap_url, :class => 'btn btn-large btn-primary' %>
-			</span>
-		</p>
-	</div>
+<div id="start-panel" class="welcome">
+	
+	<%= link_to 'Help', about_url, :class => 'help icon' %>
+	
+	<h1 id="logo">LEAP FOR LOAVES</h1>
+	<h2>by <a href="http://www.space150.com">space150</a></h2>
+	
+	<div class="message">Use your Leap Day to help fight hunger.</div>
+	<div class="action"><a href="<%= leap_url %>" class="button">Play Now<i class="arrow"></i></a></div>
 </div>
 
 <div class="leaderboard">
+	<div class="row">
+		<div class="span12">
+			<h1>Leaderboard</h1>
+			<h2><%= Leap.formatted_total_inches %> Total</h2>
+			<p>Donec id neque et libero accumsan imperdiet in et nisl. Curabitur leo metus, viverra et interdum id, interdum sed dui.</p>
+		</div>
+	</div>
 	<div class="row">
 		<% col = 0 -%>
 		<% @leaps.each do |leap| %>

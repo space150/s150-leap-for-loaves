@@ -1,4 +1,25 @@
 
+.welcome {
+	//display: none;
+	position: relative;
+
+	h2 {
+		color: #fff;
+		font-size: 24px;
+		font-weight: normal;
+		padding-top: 4px;
+
+		@media (max-width: 480px) {
+			font-size: 12px;
+		}
+
+		a, a:hover, a:active, a:visited {
+			color: #fff;
+			text-decoration: underline;
+		}
+	}
+}
+
 .leaderboard {
 
 	.item {

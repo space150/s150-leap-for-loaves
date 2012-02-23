@@ -90,28 +90,32 @@ var leap = {
 	landed: function () {
 		if ( this.gameRunning )
 		{
-			var inches = calculateInchesFromNowToDate( +new Date(), +this.liftoffDate );
+			var start = +this.liftoffDate;
+			var now = +new Date();
+			var inches = calculateInchesFromNowToDate( now, start );
 			
 			// complete the liftoff animation
 			liftoffAnimation.landWithDistance( inches );
 
 			this.updateViewForScore( inches );
-			this.submitScore( inches );
+
+			// submit the high score
+			if ( motionDetector.hasMotionData() )
+			{
+				$.ajax({
+					type: 'POST',
+					url: '/leaps.json',
+					data: { n: now, s: start, d: inches }, // TODO, generate a SHA1 hash of this data with the CSRF token
+					success: this.scoreUploaded.bind(this),
+					error: this.scoreUploadFailed.bind(this)
+				});			
+			}
 			
 			this.completeSession();
 		}
 	},
 	updateViewForScore: function ( inches ) {
 		$('#jump-feedback').html('Last leap was ' + inches + ' inches in height');
-	},
-	submitScore: function ( inches ) {	
-		$.ajax({
-			type: 'POST',
-			url: '/leaps.json',
-			data: { d: inches },
-			success: this.scoreUploaded.bind(this),
-			error: this.scoreUploadFailed.bind(this)
-		});
 	},
 	scoreUploaded: function ( data ) {
 		var total = data.t;

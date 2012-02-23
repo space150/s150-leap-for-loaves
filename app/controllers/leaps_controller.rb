@@ -25,6 +25,10 @@ class LeapsController < ApplicationController
   # POST /leaps
   # POST /leaps.json
   def create
+    
+    # TODO, re-calculate and check the validity of the data coming from the client
+    # spit it back if it doesn't match exactly!
+    
     @leap = Leap.new( :inches => params[:d] )
 
     respond_to do |format|
