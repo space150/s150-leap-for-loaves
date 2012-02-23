@@ -26,7 +26,11 @@ var leap = {
 	},
 	endGame: function () {
 		$('#hold-feedback').html('button not pressed.');
-		this.completeSession();
+		
+		if ( this.gameRunning && jumpDetector.isAirborne )
+			this.landed();
+		else
+			this.completeSession();
 	},
 	startCountdown: function () {
 		if ( this.gameRunning ) return;
@@ -105,13 +109,14 @@ var leap = {
 			type: 'POST',
 			url: '/leaps.json',
 			data: { inches: inches },
-			success: function ( data ) {
-				console.log('data: ' + data);
-			},
+			success: this.scoreUploaded.bind(this),
 			error: function ( error ) {
 				console.log('error: ' + error);
 			}
 		});
+	},
+	scoreUploaded: function ( data ) {
+		console.log(data);
 	}
 };
 

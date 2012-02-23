@@ -11,5 +11,6 @@
  *= require_self
  *= require lib/bootstrap
  *= require lib/bootstrap-responsive
+ *= require global
  *= require_tree .
 */
