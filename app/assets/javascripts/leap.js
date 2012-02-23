@@ -1,4 +1,3 @@
-//= require application
 //= require game/motionDetector
 //= require game/jumpDetector
 //= require game/liftoffAnimation

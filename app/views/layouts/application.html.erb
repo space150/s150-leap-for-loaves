@@ -3,6 +3,7 @@
     <head>
         <title>Leap For Loaves</title>
 		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<%= stylesheet_link_tag "application", :media => "all" %>
 		<%= csrf_meta_tags %>
     </head>
@@ -10,5 +11,7 @@
 		<div class="container">
 			<%= yield %>
 		</div>
+		<%= javascript_include_tag "application" %>
+		<%= yield :javascripts %>
     </body>
 </html>

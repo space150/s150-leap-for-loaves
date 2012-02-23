@@ -1,10 +1,17 @@
-//= require application
 //= require game/motionDetector
 
 var leaderboard = {
     init: function() {
-		if ( motionDetector.hasMotionData() )
+		if ( true)//motionDetector.hasMotionData() )
+		{
 			$('#start-panel').show();
+			$('body').addClass('welcome');
+		}
+		else
+		{
+			$('#start-panel').hide();
+			$('#leaderboard-panel').show();
+		}
     }
 };
 

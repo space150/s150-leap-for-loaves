@@ -1,15 +1,16 @@
-<div id="start-panel" class="welcome">
+<div id="start-panel" class="welcome clearfix">
 	
 	<%= link_to 'Help', about_url, :class => 'help icon' %>
 	
 	<h1 id="logo">LEAP FOR LOAVES</h1>
 	<h2>by <a href="http://www.space150.com">space150</a></h2>
-	
-	<div class="message">Use your Leap Day to help fight hunger.</div>
-	<div class="action"><a href="<%= leap_url %>" class="button">Play Now<i class="arrow"></i></a></div>
+	<p class="tagline">
+		<span class="left">Use your Leap Day to help fight hunger.</span>
+		<span class="right"><a href="<%= leap_url %>" class="button">Play Now<i class="arrow"></i></a></span>
+	<p>
 </div>
 
-<div class="leaderboard">
+<div id="leaderboard-panel" class="leaderboard">
 	<div class="row">
 		<div class="span12">
 			<h1>Leaderboard</h1>
@@ -31,8 +32,9 @@
 			end %>
 		<% end %>
 	</div>
+	<%= page_navigation_links @leaps %>
 </div>
 
-<%= page_navigation_links @leaps %>
-
-<%= javascript_include_tag 'leaderboard' %>
+<% content_for :javascripts do %>
+	<%= javascript_include_tag "leaderboard" %>
+<% end %>

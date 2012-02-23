@@ -1,0 +1,114 @@
+
+body.welcome {
+	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
+
+	@media (min-width: 980px) {
+		background-image: url(<%= asset_path 'global-splash-background.png' %>);
+	}
+
+	// iphone portrait
+	@media (max-width: 480px) {
+		background-position: center -60px;
+	}
+
+	// iphone landscape
+	@media (max-width: 480px) and (orientation: landscape) {
+		background-position: center -110px;
+	}
+
+	// TODO
+}
+
+.welcome {
+	position: relative;
+	padding-bottom: 40px;
+
+	@media (max-width: 480px) {
+		padding-bottom: 26px;
+	}
+
+	#logo {
+		position: relative;
+		margin-top: 400px;
+
+		// iphone portrait
+		@media (max-width: 480px) {
+			margin-top: 160px;
+		}
+
+		// iphone landscape
+		@media (max-width: 480px) and (orientation: landscape) {
+			margin-top: 30px;
+		}
+
+		// TODO
+	}
+
+	h2 {
+		color: #fff;
+		font-size: 24px;
+		font-weight: normal;
+
+		@media (max-width: 480px) {
+			font-size: 14px;
+		}
+
+		a, a:hover, a:active, a:visited {
+			color: #fff;
+			text-decoration: underline;
+		}
+	}
+
+	a.icon.help {
+		position: absolute;
+		top: 20px;
+		right: 0px;
+	}
+
+	p.tagline {
+		margin-top: 20px;
+
+		@media (max-width: 480px) {
+			margin-top: 10px;
+		}
+
+		span.left {
+			display: inline-block;
+			float: left;
+			width: 220px;
+			font-weight: bold;
+			font-style: italic;
+			font-size: 22px;
+			line-height: 24px;
+			margin-top: 8px;
+
+			@media (max-width: 480px) {
+				width: 140px;
+				font-size: 14px;
+				line-height: 16px;
+				margin-top: 1px;
+			}
+		}
+		span.right {
+			display: inline-block;
+			float: left;
+			margin-left: 20px;
+		}
+
+		a {
+			display: inline-block;
+		}
+
+	}
+
+}
+
+.leaderboard {
+	display: none;
+
+	.item {
+		background-color: #eee;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+}
