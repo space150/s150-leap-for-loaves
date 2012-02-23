@@ -25,12 +25,12 @@ class LeapsController < ApplicationController
   # POST /leaps
   # POST /leaps.json
   def create
-    @leap = Leap.new(:inches => params[:inches])
+    @leap = Leap.new( :inches => params[:d] )
 
     respond_to do |format|
       if @leap.save
         format.html { redirect_to @leap, notice: 'Leap was successfully created.' }
-        format.json { render json: @leap, status: :created, location: @leap }
+        format.json { render json: { i: @leap.formatted_inches, t: Leap.formatted_total_inches }, status: 200 }
       else
         format.html { render action: "new" }
         format.json { render json: @leap.errors, status: :unprocessable_entity }

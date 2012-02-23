@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span12">
 		<h1>Leaderboard</h1>
-		<h2><%= total_leap_distance %> Total</h2>
+		<h2><%= Leap.formatted_total_inches %> Total</h2>
 		<p>Donec id neque et libero accumsan imperdiet in et nisl. Curabitur leo metus, viverra et interdum id, interdum sed dui.</p>
 		
 		<p>
@@ -19,7 +19,7 @@
 		<% col = 0 -%>
 		<% @leaps.each do |leap| %>
 			<div class="span2 item">
-				<h4><%= format_distance leap.inches %></h4>
+				<h4><%= leap.formatted_inches %></h4>
 				<p class="small"><%= leap.created_at.to_s(:short) %></p>
 			</div>
 		  	<% if col >= 5; col = 0; %>

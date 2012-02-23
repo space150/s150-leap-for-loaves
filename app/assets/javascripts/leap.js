@@ -108,15 +108,23 @@ var leap = {
 		$.ajax({
 			type: 'POST',
 			url: '/leaps.json',
-			data: { inches: inches },
+			data: { d: inches },
 			success: this.scoreUploaded.bind(this),
-			error: function ( error ) {
-				console.log('error: ' + error);
-			}
+			error: this.scoreUploadFailed.bind(this)
 		});
 	},
 	scoreUploaded: function ( data ) {
-		console.log(data);
+		var total = data.t;
+		var inches = data.i;
+		console.log([inches, total]);
+		
+		$('#leap').hide();
+		$('#result').show();
+		$('#result-inches').html(inches);
+		$('#result-total-inches').html(total);
+	},
+	scoreUploadFailed: function ( error ) {
+		console.log('error: ' + error);
 	}
 };
 
