@@ -2,7 +2,7 @@
 body.welcome {
 	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
 
-	@media (min-width: 980px) {
+	@media (min-width: 1025px) {
 		background-image: url(<%= asset_path 'global-splash-background.png' %>);
 	}
 
@@ -16,7 +16,15 @@ body.welcome {
 		background-position: center -110px;
 	}
 
-	// TODO
+	// ipad portrait
+	@media (min-width: 481px) and (max-width: 1024px) {
+		background-position: center top;
+	}
+
+	// ipad landscape
+	@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+		background-position: center -60px;
+	}
 }
 
 .welcome {
@@ -41,7 +49,15 @@ body.welcome {
 			margin-top: 30px;
 		}
 
-		// TODO
+		// ipad portrait
+		@media (min-width: 481px) and (max-width: 1024px) {
+			margin-top: 460px;
+		}
+
+		// ipad landscape
+		@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+			margin-top: 220px;
+		}
 	}
 
 	h2 {
