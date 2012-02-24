@@ -1,5 +1,42 @@
-<div class="row">
-	<div class="span12">
-		<h2>leapforloaves.com</h2>
+<div class="countdown">
+	<div class="panel">
+		<h1 id="small logo">LEAP FOR LOAVES</h1>
+		<h2>by <a href="http://www.space150.com">space150</a></h2>
+		<div class="clock clearfix">
+			<div class="entry">
+				<div id="days">00</div>
+				<div class="tag">DAYS</div>
+			</div>
+			<div class="entry">
+				<div id="hours">00</div>
+				<div class="tag">HOURS</div>
+			</div>
+			<div class="entry">
+				<div id="minutes">00</div>
+				<div class="tag">MINUTES</div>
+			</div>
+			<div class="entry">
+				<div id="seconds">00</div>
+				<div class="tag">SECONDS</div>
+			</div>
+		</div>
+		<div class="footer clearfix">
+			<div class="entry">
+				Coming Soon...
+			</div>
+			<div class="entry">
+				Help earn some bread for Second Harvest by leaping on Leap Day.
+			</div>
+			<div class="entry">
+				Visit us again on Feb. 29th and put your extra day to good use.
+			</div>
+			<div class="entry">
+				<a href="#" class="twitter icon">Twitter</a>
+				<a href="#" class="facebook icon">Facebook</a>
+			</div>
+		</div>
 	</div>
 </div>
+<% content_for :javascripts do %>
+	<%= javascript_include_tag "welcome" %>
+<% end %>
