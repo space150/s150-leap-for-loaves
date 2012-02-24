@@ -1,3 +1,154 @@
 .countdown {
+	position: relative;
 	
-}
+	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
+	background-size: 1080px 1080px;
+	background-repeat: no-repeat;
+	background-position: center top;
+
+	// retina displays
+	@media (max-width: 480px) {
+		background-size: 540px 540px;
+	}
+
+	// desktop
+	@media (min-width: 1025px) {
+		background-image: url(<%= asset_path 'global-splash-background.png' %>);
+	}
+
+	.panel {
+		position: relative;
+		width: 960px;
+		margin: auto;
+		padding-top: 80px;
+		padding-bottom: 100px;
+
+		@media (max-width: 1025px) {
+		    width: auto;
+		    padding: 0 20px;
+		}
+
+		h2 {
+			color: #fff;
+			font-size: 14px;
+			font-weight: normal;
+
+			@media (max-width: 480px) {
+				font-size: 10px;
+			}
+
+			a, a:hover, a:active, a:visited {
+				color: #fff;
+				text-decoration: underline;
+			}
+			a:hover {
+				background-color: #000;
+			}
+		}
+
+		.clock {
+			margin-top: 20px;
+			margin-bottom: 10px;
+
+			.entry {
+				display: inline-block;
+				width: 222px;
+				height: 248px;
+				margin-right: 20px;
+				background-image: url(<%= asset_path 'welcome-time-background.png' %>);
+				background-position: 0px 0px;
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			    text-align: center;
+
+				.number {
+					margin-top: 34px;
+					font-size: 136px;
+					line-height: 136px;
+					font-weight: bold;
+					color: #fff;
+					text-transform: uppercase;
+				}
+
+				.tag {
+					font-size: 28px;
+					line-height: 28px;
+					font-weight: bold;
+					color: #fff;
+					text-transform: uppercase;
+				}
+			}
+
+			.entry.last {
+				margin-right: 0px;
+			}
+		} // .clock
+
+		.footer {
+
+			.entry {
+				display: inline-block;
+				width: 220px;
+				margin-right: 20px;
+				padding-left: 2px;
+
+				color: #fff;
+				font-size: 14px;
+				line-height: 16px;
+				font-weight: bold;
+				vertical-align: top;
+
+				a.icon {
+					display: inline-block;
+					width: 72px;
+					height: 72px;
+					overflow: hidden;
+					text-indent: -9999px;
+
+					background-image: url(<%= asset_path 'global-facebook-button.png' %>);
+					background-position: 0px 0px;
+				}
+
+				a.icon.twitter {
+					background-image: url(<%= asset_path 'global-twitter-button.png' %>);
+				}
+
+				a.icon:hover {
+					background-position: 0px 72px;
+				}
+
+				.share {
+					display: inline-block;
+					vertical-align: middle;
+					width: 80px;
+					height: 20px;
+					padding-top: 12px;
+				}
+
+				.share.twitter {
+					padding-right: 14px; 
+				}
+			}
+
+			.entry.action {
+				text-align: center;
+			}
+
+			.entry.text {
+				padding-top: 8px;
+			}
+
+			.entry.large-text {
+				font-size: 32px;
+				line-height: 34px;
+			}
+
+			.entry.last {
+				margin-right: 0px;
+			}
+		}
+
+	} // .panel
+} // .countdown

@@ -1,38 +1,52 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="countdown">
 	<div class="panel">
-		<h1 id="small logo">LEAP FOR LOAVES</h1>
+		<h1 id="logo" class="small">LEAP FOR LOAVES</h1>
 		<h2>by <a href="http://www.space150.com">space150</a></h2>
 		<div class="clock clearfix">
 			<div class="entry">
-				<div id="days">00</div>
+				<div id="days" class="number">00</div>
 				<div class="tag">DAYS</div>
 			</div>
 			<div class="entry">
-				<div id="hours">00</div>
+				<div id="hours" class="number">00</div>
 				<div class="tag">HOURS</div>
 			</div>
 			<div class="entry">
-				<div id="minutes">00</div>
+				<div id="minutes" class="number">00</div>
 				<div class="tag">MINUTES</div>
 			</div>
-			<div class="entry">
-				<div id="seconds">00</div>
+			<div class="last entry">
+				<div id="seconds" class="number">00</div>
 				<div class="tag">SECONDS</div>
 			</div>
 		</div>
 		<div class="footer clearfix">
-			<div class="entry">
+			<div class="large-text entry">
 				Coming Soon...
 			</div>
-			<div class="entry">
+			<div class="text entry">
 				Help earn some bread for Second Harvest by leaping on Leap Day.
 			</div>
-			<div class="entry">
+			<div class="text entry">
 				Visit us again on Feb. 29th and put your extra day to good use.
 			</div>
-			<div class="entry">
-				<a href="#" class="twitter icon">Twitter</a>
-				<a href="#" class="facebook icon">Facebook</a>
+			<div class="last action entry">
+				<div class="share twitter">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.leapforloaves.com">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+				<div class="share facebook">
+					<div class="fb-like" data-href="http://www.leapforloaves.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+				</div
 			</div>
 		</div>
 	</div>

@@ -12,6 +12,7 @@
  *= require lib/bootstrap
  *= require lib/bootstrap-responsive
  *= require global
+ *= require welcome
  *= require leap
  *= require leaderboard
 */
