@@ -9,12 +9,8 @@
 
 	// retina displays
 	@media (max-width: 480px) {
-		background-size: 540px 540px;
-	}
-
-	// ipad and smaller
-	@media (max-width: 1024px) {
 		height: auto;
+		background-size: 540px 540px;
 	}
 
 	// desktop
@@ -33,6 +29,11 @@
 		    padding-top: 20px;
 		    padding-left: 20px;
 		    padding-right: 20px;
+		}
+
+		// ipad portrait
+		@media (min-width: 481px) and (max-width: 1024px) {
+		    padding-top: 80px;
 		}
 
 		h2 {
@@ -59,6 +60,19 @@
 
 		.clock {
 			margin-top: 20px;
+			margin-bottom: 0px;
+
+			// ipad portrait
+			@media (min-width: 481px) and (max-width: 1024px) {
+				margin-top: 60px;
+				margin-bottom: 20px;
+			}
+
+			// ipad landscape
+			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+				margin-top: 20px;
+				margin-bottom: 0px;
+			}
 
 			.entry {
 				display: inline-block;
@@ -88,6 +102,20 @@
 					margin-right: 10px;
 				}
 
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+					width: 160px;
+					height: 180px;
+					margin-right: 20px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					width: 222px;
+					height: 248px;
+					margin-right: 20px;
+				}
+
 				.number {
 					margin-top: 34px;
 					font-size: 136px;
@@ -109,6 +137,20 @@
 					 	font-size: 62px;
 					 	line-height: 64px;
 					}
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+						margin-top: 28px;
+					 	font-size: 102px;
+					 	line-height: 104px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						margin-top: 34px;
+						font-size: 136px;
+						line-height: 136px;
+					}
 				}
 
 				.tag {
@@ -128,6 +170,18 @@
 					@media (max-width: 480px) and (orientation: landscape) {
 					 	font-size: 14px;
 					 	line-height: 16px;
+					}
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+					 	font-size: 20px;
+					 	line-height: 22px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						font-size: 28px;
+						line-height: 28px;
 					}
 				}
 			}
@@ -152,9 +206,22 @@
 				font-weight: bold;
 				vertical-align: top;
 
+				// iphone
 				@media (max-width: 480px) {
 					font-size: 12px;
 					width: auto;
+				}
+
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+				 	width: 160px;
+				 	margin-right: 20px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					width: 222px;
+					margin-right: 20px;
 				}
 
 				.share {
@@ -163,6 +230,18 @@
 					width: 80px;
 					height: 20px;
 					padding-top: 12px;
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+						display: block;
+						padding-top: 8px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						display: inline-block;
+						padding-top: 12px;
+					}
 				}
 
 				.share.twitter {
@@ -175,7 +254,7 @@
 						margin-top: -4px;
 					}
 				}
-			}
+			} // .entry
 
 			.entry.action {
 				text-align: center;
@@ -203,7 +282,7 @@
 			.entry.last {
 				margin-right: 0px;
 			}
-		}
+		} // .footer
 
 	} // .panel
 } // .countdown
