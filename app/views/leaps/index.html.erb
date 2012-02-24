@@ -2,7 +2,7 @@
 	<%= link_to 'Help', about_url, :class => 'help icon' %>
 	<div class="panel">
 		<h1 id="logo">LEAP FOR LOAVES</h1>
-		<h2>by <a href="http://www.space150.com">space150</a></h2>
+		<h2 id="logo-tag">by <a href="http://www.space150.com">space150</a></h2>
 		<p class="tagline clearfix">
 			<span class="left">Use your Leap Day to help fight hunger.</span>
 			<span class="right"><a href="<%= leap_url %>" class="button">Play Now<i class="arrow"></i></a></span>
@@ -12,11 +12,23 @@
 <div class="leaderboard">
 	<%= link_to 'Help', about_url, :class => 'help icon' %>
 	<div class="panel">
-		<h1>Global Leaps:</h1>
-		<h2><%= Leap.formatted_total_inches %></h2>
-		<div>
-			<a href="<%= leap_url %>" id="leap-again-button" class="leap-again button">Leap Again<i class="arrow"></i></a>
-			<a href="#" class="clear button">Read More<i class="arrow"></i></a>
+		<div class="header">
+			<div class="entry">
+				<h1 id="logo">LEAP FOR LOAVES</h1>
+				<h2 id="logo-tag">by <a href="http://www.space150.com">space150</a></h2>
+			</div>
+			<div class="entry">
+				<h1>Global Leaps:</h1>
+				<h2><%= Leap.formatted_total_inches %></h2>
+				<a href="<%= leap_url %>" id="leap-again-button" class="leap-again button">Leap Again<i class="arrow"></i></a>
+			</div>
+			<div class="entry">
+				<a href="#" id="read-more-button" class="clear button">Read More<i class="arrow"></i></a>
+				<div id="read-more-panel">
+					<p>People all over the globe are leaping on Leap Day to benefit Second Harvest food banks!</p>
+					<p>If you want to get involved, visit this site with a smartphone, or go to 2harvest.org and learn how to help.</p>
+				</div>
+			</div>
 		</div>
 		<div class="board clearfix">
 			<% @leaps.each do |leap| %>
