@@ -2,15 +2,17 @@
 
 var leaderboard = {
     init: function() {
-		if ( motionDetector.hasMotionData() )
-		{
-			$('#start-panel').show();
-			$('body').addClass('welcome');
-		}
+    	var hasMotionData = motionDetector.hasMotionData();
+
+		if ( !ALREADY_VIEWED_INTRO && hasMotionData )
+			$('#welcome-panel').show();
 		else
-		{
-			$('#start-panel').hide();
-		}
+			$('#welcome-panel').hide();
+
+		if ( hasMotionData )
+			$('#leap-again-button').show();
+		else
+			$('#leap-again-button').hide();
     }
 };
 

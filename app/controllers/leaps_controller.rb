@@ -5,8 +5,6 @@ class LeapsController < ApplicationController
   def index
     @leaps = Leap.page(params[:page]).order('created_at desc')
 
-    session[:visited] = true
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @leaps }

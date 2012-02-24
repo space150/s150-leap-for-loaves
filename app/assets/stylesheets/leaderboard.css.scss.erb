@@ -1,7 +1,17 @@
 
-body.welcome {
-	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
+.welcome {
 
+	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
+	background-size: 1080px 1080px;
+	background-repeat: no-repeat;
+	background-position: center top;
+
+	// retina displays
+	@media (max-width: 480px) {
+		background-size: 540px 540px;
+	}
+
+	// desktop
 	@media (min-width: 1025px) {
 		background-image: url(<%= asset_path 'global-splash-background.png' %>);
 	}
@@ -25,121 +35,153 @@ body.welcome {
 	@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
 		background-position: center -60px;
 	}
-}
-
-.welcome {
-	position: relative;
-	height: 1080px;
-
-	// iphone portrait
-	@media (max-width: 480px) {
-		height: 480px;
-	}
-
-	// iphone landscape
-	@media (max-width: 480px) and (orientation: landscape) {
-		height: 430px;
-	}
-
-	// ipad portrait
-	@media (min-width: 481px) and (max-width: 1024px) {
-		height: 1080px;
-	}
-
-	// ipad landscape
-	@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-		height: 1020px;
-	}
-
-	#logo {
-		position: relative;
-		margin-top: 400px;
-
-		// iphone portrait
-		@media (max-width: 480px) {
-			margin-top: 160px;
-		}
-
-		// iphone landscape
-		@media (max-width: 480px) and (orientation: landscape) {
-			margin-top: 30px;
-		}
-
-		// ipad portrait
-		@media (min-width: 481px) and (max-width: 1024px) {
-			margin-top: 460px;
-		}
-
-		// ipad landscape
-		@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-			margin-top: 220px;
-		}
-	}
-
-	h2 {
-		color: #fff;
-		font-size: 24px;
-		font-weight: normal;
-
-		@media (max-width: 480px) {
-			font-size: 14px;
-		}
-
-		a, a:hover, a:active, a:visited {
-			color: #fff;
-			text-decoration: underline;
-		}
-	}
 
 	a.icon.help {
 		position: absolute;
 		top: 20px;
-		right: 0px;
+		right: 20px;
 	}
 
-	p.tagline {
-		margin-top: 20px;
+	.panel {
+		position: relative;
+		width: 960px;
+		margin: auto;
 
-		@media (max-width: 480px) {
-			margin-top: 10px;
+		@media (max-width: 1025px) {
+		    width: auto;
+		    padding: 0 20px;
 		}
 
-		span.left {
-			display: inline-block;
-			float: left;
-			width: 220px;
-			font-weight: bold;
-			font-style: italic;
-			font-size: 22px;
-			line-height: 24px;
-			margin-top: 8px;
+		#logo {
+			position: relative;
+			margin-top: 400px;
 
+			// iphone portrait
 			@media (max-width: 480px) {
-				width: 140px;
-				font-size: 14px;
-				line-height: 16px;
-				margin-top: 1px;
+				margin-top: 160px;
+			}
+
+			// iphone landscape
+			@media (max-width: 480px) and (orientation: landscape) {
+				margin-top: 30px;
+			}
+
+			// ipad portrait
+			@media (min-width: 481px) and (max-width: 1024px) {
+				margin-top: 460px;
+			}
+
+			// ipad landscape
+			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+				margin-top: 220px;
 			}
 		}
-		span.right {
-			display: inline-block;
-			float: left;
-			margin-left: 20px;
+
+		h2 {
+			color: #fff;
+			font-size: 24px;
+			font-weight: normal;
+
+			@media (max-width: 480px) {
+				font-size: 14px;
+			}
+
+			a, a:hover, a:active, a:visited {
+				color: #fff;
+				text-decoration: underline;
+			}
+			a:hover {
+				background-color: #000;
+			}
 		}
 
-		a {
-			display: inline-block;
-		}
+		p.tagline {
+			margin-top: 20px;
+			margin-bottom: 20px;
 
-	}
+			// retina displays
+			@media (max-width: 480px) {
+				margin-top: 10px;
+				margin-bottom: 20px;
+			}
 
-}
+			span.left {
+				display: inline-block;
+				float: left;
+				width: 220px;
+				font-weight: bold;
+				font-style: italic;
+				font-size: 22px;
+				line-height: 24px;
+				margin-top: 8px;
+
+				// retina displays
+				@media (max-width: 480px) {
+					width: 140px;
+					font-size: 14px;
+					line-height: 16px;
+					margin-top: 1px;
+				}
+			}
+			span.right {
+				display: inline-block;
+				float: left;
+				margin-left: 20px;
+			}
+
+			a {
+				display: inline-block;
+			}
+
+		} // p.tagline
+	} // .panel
+} // .welcome
 
 .leaderboard {
-	background-color: #eee;
-	.item {
-		background-color: #eee;
-		text-align: center;
-		margin-bottom: 20px;
+	position: relative;
+	margin-top: 40px;
+
+	a.icon.help {
+		position: absolute;
+		top: 0px;
+		right: 20px;
 	}
-}
+
+	.panel {
+		position: relative;
+		width: 960px;
+		margin: auto;
+
+		@media (max-width: 1025px) {
+		    width: auto;
+		    padding: 0 20px;
+		}
+
+		.leap-again.button {
+			margin-right: 40px;
+		}
+
+		.board {
+
+		}
+
+		.item {
+			display: inline-block;
+			width: 80px;
+			height: 200px;
+			text-align: center;
+			margin-bottom: 20px;
+			margin-right: 16px;
+			float: left;
+
+			@media (max-width: 480px) {
+			    width: 40px;
+				height: 100px;
+				margin-bottom: 10px;
+				margin-right: 16px;
+			}
+
+		}
+
+	} // .panel
+} // .leaderboard

@@ -3,19 +3,11 @@ body {
 	background-color: #00d476;
 	color: #000;
 	font-family: Arial, sans-serif;
+}
 
-	background-image: url(<%= asset_path 'global-background.png' %>);
-	background-size: 1080px 1080px;
-	background-repeat: no-repeat;
-	background-position: center top;
-
-	@media (max-width: 480px) {
-		background-size: 540px 540px;
-	}
-
-	@media (min-width: 1025px) {
-		background-image: none;
-	}
+.container {
+	width: auto;
+	padding: 0px;
 }
 
 /* LOGOS --------------------------------------------------------------- */
@@ -83,6 +75,18 @@ a.button:hover, a.button:active {
 	-moz-box-shadow: 0 0 20px 1px #fff;
 	-webkit-box-shadow: 0 0 20px 1px #fff;
 	box-shadow: 0 0 20px 1px #fff;
+}
+
+a.clear.button {
+	background-image: none;
+	padding-left: 0px;
+}
+
+a.clear.button:hover, a.clear.button:active {
+	text-decoration: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 a.icon.help {
