@@ -6,6 +6,11 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<%= stylesheet_link_tag "application", :media => "all" %>
 		<%= csrf_meta_tags %>
+		<% if session[:visited] %>
+			<script type="text/javascript">
+				
+			</script>
+		<% end %>
     </head>
     <body>
 		<div class="container">

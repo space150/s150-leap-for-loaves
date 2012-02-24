@@ -2,7 +2,7 @@
 
 var leaderboard = {
     init: function() {
-		if ( true)//motionDetector.hasMotionData() )
+		if ( motionDetector.hasMotionData() )
 		{
 			$('#start-panel').show();
 			$('body').addClass('welcome');
@@ -10,7 +10,6 @@ var leaderboard = {
 		else
 		{
 			$('#start-panel').hide();
-			$('#leaderboard-panel').show();
 		}
     }
 };

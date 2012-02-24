@@ -29,10 +29,26 @@ body.welcome {
 
 .welcome {
 	position: relative;
-	padding-bottom: 40px;
+	height: 1080px;
 
+	// iphone portrait
 	@media (max-width: 480px) {
-		padding-bottom: 26px;
+		height: 480px;
+	}
+
+	// iphone landscape
+	@media (max-width: 480px) and (orientation: landscape) {
+		height: 430px;
+	}
+
+	// ipad portrait
+	@media (min-width: 481px) and (max-width: 1024px) {
+		height: 1080px;
+	}
+
+	// ipad landscape
+	@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+		height: 1020px;
 	}
 
 	#logo {
@@ -120,8 +136,7 @@ body.welcome {
 }
 
 .leaderboard {
-	display: none;
-
+	background-color: #eee;
 	.item {
 		background-color: #eee;
 		text-align: center;
