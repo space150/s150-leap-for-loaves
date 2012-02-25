@@ -1,20 +1,32 @@
 
 .leaderboard {
 	position: relative;
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 20px;
 
 	.panel {
 		position: relative;
+
+		@media (max-width: 480px) {
+			margin: 0;
+		}
 
 		.help {
 			position: absolute;
 			right: 0;
 			top: 0;
+
+			@media (max-width: 480px) {
+				right: 5px;
+			}
 		}
 
 		.header {
-			margin-bottom: 40px;
+			margin-bottom: 80px;
+
+			// iphone
+			@media (max-width: 480px) {
+				margin-bottom: 0px;
+			}
 
 			.entry {
 				display: inline-block;
@@ -24,21 +36,101 @@
 				height: 258px;
 				margin-right: 70px;
 
+				// iphone portrait
+				@media (max-width: 480px) {
+					display: block;
+					border: none;
+					width: auto;
+					height: auto;
+					margin-right: 0px;
+				}
+
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+					// nothing
+				}
+
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+					width: 220px;
+					margin-right: 20px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					width: 270px;
+					margin-right: 70px;
+				}
+
 			} // .entry
 
 			.entry.last {
 				margin-right: 0px;
 			}
 
+			.entry.logo {
+
+				// iphone
+				@media (max-width: 480px) {
+					display: none;
+				}
+
+				.logo {
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
+						width: 194px;
+						height: 139px;
+						background-size: 194px 139px;
+					}
+				}
+			}
+
 			.entry.score {
-				padding-top: 64px;
+				margin-top: 64px;
 				height: 194px;
+
+				// iphone portrait
+				@media (max-width: 480px) {
+					margin: 0 10px;
+					margin-top: 0px;
+					height: auto;
+				}
+
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+					// nothing
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					// nothing
+				}
 
 				h3 {
 					margin: 0;
 					padding: 0;
 					font-size: 38px;
 					line-height: 40px;
+					margin-bottom: 10px;
+
+					// iphone
+					@media (max-width: 480px) {
+						font-size: 32px;
+						line-height: 34px;
+					}
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+						font-size: 28px;
+						line-height: 30px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						font-size: 38px;
+						line-height: 40px;
+					}
 				}
 
 				h4 {
@@ -47,6 +139,24 @@
 					color: #fff;
 					font-size: 60px;
 					line-height: 62px;
+
+					// iphone
+					@media (max-width: 480px) {
+						font-size: 38px;
+						line-height: 38px;
+					}
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+						font-size: 42px;
+						line-height: 44px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						font-size: 60px;
+						line-height: 62px;
+					}
 				}
 
 			} // .entry.score
@@ -56,9 +166,37 @@
 				height: 242px;
 				font-weight: bold;
 
+				// iphone portrait
+				@media (max-width: 480px) {
+					margin-top: 0px;
+					height: auto;
+					margin-top: 10px;
+					margin-bottom: 20px;
+				}
+
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+					// nothing
+				}
+
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+					font-size: 14px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					font-size: 16px;
+				}
+
 				.actions {
 					height: 20px;
 					margin-bottom: 34px;
+
+					// iphone
+					@media (max-width: 480px) {
+						margin: 0 10px;
+					}
 
 					.action {
 						display: inline-block;
@@ -68,21 +206,76 @@
 					.action.twitter {
 						width: 80px;
 						padding-right: 14px;
+
+						// iphone
+						@media (max-width: 480px) {
+							display: none;
+						}
 					}
 					.action.facebook {
 						margin-top: -4px;
 						width: 80px;
 						padding-right: 14px;
+
+						// iphone
+						@media (max-width: 480px) {
+							display: none;
+						}
 					}
 
 					.action.read {
 						display: none;
+
+						// iphone
+						@media (max-width: 480px) {
+							display: block;
+						}
+
+						#read-more-button.open {
+							i.arrow {
+								width: 42px;
+								height: 34px;
+								background: url(<%= asset_path 'global-button-down-arrow.png' %>) no-repeat right center;
+								background-size: 42px 34px;
+								padding-left: 8px;
+
+								@media (max-width: 480px) {
+									width: 21px;
+									height: 17px;
+									background-size: 21px 17px;
+									padding-left: 4px;
+								}
+							}
+						}
 					}
 
 				} // .actions
 
+				#read-more-panel {
+
+					// iphone
+					@media (max-width: 480px) {
+						background-color: rgba(0, 0, 0, 0.5);
+						margin-top: 20px;
+						font-weight: normal;
+						padding: 1px 10px;
+						display: none;
+						color: #fff;
+					}
+				}
+
 				p.large {
 					font-size: 18px;
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+						font-size: 16px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						font-size: 18px;
+					}
 				}
 
 			} // .entry.read-more
@@ -90,6 +283,13 @@
 		} // .header
 
 		.board {
+			margin-bottom: 40px;
+
+			// iphone
+			@media (max-width: 480px) {
+				margin: 0 10px;
+				margin-bottom: 20px;
+			}
 
 			.item {
 				display: inline-block;
@@ -99,11 +299,18 @@
 				margin-bottom: 20px;
 				margin-right: 16px;
 
+				// iphone portrait
 				@media (max-width: 480px) {
 				    width: 40px;
-					height: 100px;
 					margin-bottom: 10px;
-					margin-right: 16px;
+					margin-right: 20px;
+				}
+
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+				    width: 40px;
+					margin-bottom: 10px;
+					margin-right: 36px;
 				}
 
 				h4 {
@@ -113,12 +320,25 @@
 					font-size: 36px;
 					line-size: 38px;
 					padding-left: 16px;
+
+					// iphone
+					@media (max-width: 480px) {
+						font-size: 18px;
+						line-size: 20px;
+						padding-left: 8px;
+					}
 				}
 			} // .item
 		} // .board
 
 		.footer {
-			margin-top: 20px;
+			margin-bottom: 40px;
+
+			// iphone
+			@media (max-width: 480px) {
+				margin: 0 20px;
+				margin-bottom: 20px;
+			}
 
 			.pager {
 				float: left;
@@ -136,6 +356,12 @@
 							font-size: 22px;
 							margin-right: 4px;
 
+							// iphone portrait
+							@media (max-width: 480px) and (orientation: portrait) {
+							    font-size: 16px;
+							    margin-right: 2px;
+							}
+
 							a {
 								text-decoration: none;
 							}
@@ -148,7 +374,8 @@
 								height: 30px;
 								overflow: hidden;
 								text-indent: -9999px;
-								background: url(<%= asset_path 'global-button-prev-arrow.png' %>) no-repeat;								
+								background: url(<%= asset_path 'global-button-prev-arrow.png' %>) no-repeat;
+								background-size: 20px 30px;
 							}
 						}
 
@@ -159,7 +386,8 @@
 								height: 30px;
 								overflow: hidden;
 								text-indent: -9999px;
-								background: url(<%= asset_path 'global-button-arrow.png' %>) no-repeat;								
+								background: url(<%= asset_path 'global-button-arrow.png' %>) no-repeat;	
+								background-size: 20px 30px;							
 							}
 						}
 					}

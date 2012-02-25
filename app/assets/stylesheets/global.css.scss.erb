@@ -30,7 +30,7 @@ a:hover, a:active {
 
 	@media (max-width: 1025px) {
 	    width: auto;
-	    margin: 0 20px;
+	    margin: 0 10px;
 	}
 }
 
@@ -173,6 +173,13 @@ a.button:hover, a.button:active {
 	-moz-box-shadow: 0 0 20px 1px #fff;
 	-webkit-box-shadow: 0 0 20px 1px #fff;
 	box-shadow: 0 0 20px 1px #fff;
+
+	@media (max-width: 480px) {
+		background-position: 0px 34px;
+		-moz-box-shadow: 0 0 10px 1px #fff;
+		-webkit-box-shadow: 0 0 10px 1px;
+		box-shadow: 0 0 10px 1px #fff;
+    }
 }
 
 a.clear.button {
