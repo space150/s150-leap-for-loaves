@@ -12,31 +12,27 @@
 <div class="leaderboard">
 	<%= link_to 'Help', about_url, :class => 'help icon' %>
 	<div class="panel">
-		<div class="header">
+		<div class="header clearfix">
 			<div class="entry">
-				<h1 id="logo">LEAP FOR LOAVES</h1>
-				<h2 id="logo-tag">by <a href="http://www.space150.com">space150</a></h2>
-			</div>
-			<div class="entry">
+				<h1 id="logo" class="mid">LEAP FOR LOAVES</h1>
+				<h2 id="logo-tag" class="mid">by <a href="http://www.space150.com">space150</a></h2>
+			</div><div class="entry">
 				<h1>Global Leaps:</h1>
 				<h2><%= Leap.formatted_total_inches %></h2>
 				<a href="<%= leap_url %>" id="leap-again-button" class="leap-again button">Leap Again<i class="arrow"></i></a>
-			</div>
-			<div class="entry">
+			</div><div class="last entry">
 				<a href="#" id="read-more-button" class="clear button">Read More<i class="arrow"></i></a>
 				<div id="read-more-panel">
 					<p>People all over the globe are leaping on Leap Day to benefit Second Harvest food banks!</p>
-					<p>If you want to get involved, visit this site with a smartphone, or go to 2harvest.org and learn how to help.</p>
+					<p>If you want to get involved, visit this site with a smartphone, or go to <a href="http://2harvest.org">2harvest.org</a> and learn how to help.</p>
 				</div>
 			</div>
 		</div>
 		<div class="board clearfix">
-			<% @leaps.each do |leap| %>
-				<div class="item">
-					<img src="<%= asset_path leap.anim_filename %>" width="" height="" border="0" alt="<%= leap.formatted_inches %>" />
+			<% @leaps.each do |leap| %><div class="item">
+					<img src="<%= asset_path leap.anim_filename %>" width="85" height="181" border="0" alt="<%= leap.formatted_inches %>" />
 					<h4><%= leap.formatted_inches %></h4>
-				</div>
-			<% end %>
+				</div><% end %>
 		</div>
 		<%= page_navigation_links @leaps %>
 	</div>

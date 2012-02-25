@@ -1,7 +1,6 @@
-.countdown {
-	position: relative;
-	height: 1080px;
-	
+
+.welcome {
+
 	background-image: url(<%= asset_path 'global-splash-background.png' %>), url(<%= asset_path 'global-background.png' %>);
 	background-size: 1080px 1080px;
 	background-repeat: no-repeat;
@@ -9,7 +8,6 @@
 
 	// retina displays
 	@media (max-width: 480px) {
-		height: 540px;
 		background-size: 540px 540px;
 	}
 
@@ -18,271 +16,97 @@
 		background-image: url(<%= asset_path 'global-splash-background.png' %>);
 	}
 
+	// iphone portrait
+	@media (max-width: 480px) {
+		background-position: center -40px;
+	}
+
+	// iphone landscape
+	@media (max-width: 480px) and (orientation: landscape) {
+		background-position: center -110px;
+	}
+
+	// ipad portrait
+	@media (min-width: 481px) and (max-width: 1024px) {
+		background-position: center top;
+	}
+
+	// ipad landscape
+	@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+		background-position: center -28px;
+	}
+
+	a.icon.help {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+
 	.panel {
-		position: relative;
-		width: 960px;
-		margin: auto;
-		padding-top: 80px;
 
-		@media (max-width: 1025px) {
-		    width: auto;
-		    padding-top: 20px;
-		    padding-left: 20px;
-		    padding-right: 20px;
-		}
+		#logo {
+			position: relative;
+			margin-top: 400px;
 
-		// ipad portrait
-		@media (min-width: 481px) and (max-width: 1024px) {
-		    padding-top: 80px;
-		}
-
-		h2 {
-			color: #fff;
-			font-size: 14px;
-			line-height: 16px;
-			font-weight: normal;
-			padding-top: 10px;
-
-			// iphone
+			// iphone portrait
 			@media (max-width: 480px) {
-				font-size: 10px;
-				padding-top: 6px;
+				margin-top: 180px;
 			}
 
-			a, a:hover, a:active, a:visited {
-				color: #fff;
-				text-decoration: underline;
+			// iphone landscape
+			@media (max-width: 480px) and (orientation: landscape) {
+				margin-top: 30px;
 			}
-			a:hover {
-				background-color: #000;
-			}
-		}
-
-		.clock {
-			margin-top: 20px;
-			margin-bottom: 0px;
 
 			// ipad portrait
 			@media (min-width: 481px) and (max-width: 1024px) {
-				margin-top: 60px;
-				margin-bottom: 20px;
+				margin-top: 510px;
 			}
 
 			// ipad landscape
 			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-				margin-top: 20px;
-				margin-bottom: 0px;
+				margin-top: 252px;
+			}
+		}
+
+		p.tagline {
+			margin-top: 20px;
+			margin-bottom: 20px;
+
+			// retina displays
+			@media (max-width: 480px) {
+				margin-top: 10px;
+				margin-bottom: 20px;
 			}
 
-			.entry {
+			span.left {
 				display: inline-block;
-				width: 222px;
-				height: 248px;
-				margin-right: 20px;
-				margin-bottom: 10px;
-				background-image: url(<%= asset_path 'welcome-time-background.png' %>);
-				background-position: 0px 0px;
-			    -webkit-background-size: cover;
-			    -moz-background-size: cover;
-			    -o-background-size: cover;
-			    background-size: cover;
-			    text-align: center;
-
-			    // iphone
-			    @media (max-width: 480px) {
-					width: 60px;
-					height: 70px;
-					margin-right: 6px;
-				}
-
-				// iphone landscape
-				@media (max-width: 480px) and (orientation: landscape) {
-					width: 94px;
-					height: 100px;
-					margin-right: 10px;
-				}
-
-				// ipad portrait
-				@media (min-width: 481px) and (max-width: 1024px) {
-					width: 160px;
-					height: 180px;
-					margin-right: 20px;
-				}
-
-				// ipad landscape
-				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-					width: 222px;
-					height: 248px;
-					margin-right: 20px;
-				}
-
-				.number {
-					margin-top: 34px;
-					font-size: 136px;
-					line-height: 136px;
-					font-weight: bold;
-					color: #fff;
-					text-transform: uppercase;
-
-					// iphone
-					 @media (max-width: 480px) {
-					 	margin-top: 10px;
-					 	font-size: 36px;
-					 	line-height: 38px;
-					 }
-
-					 // iphone landscape
-					@media (max-width: 480px) and (orientation: landscape) {
-						margin-top: 10px;
-					 	font-size: 62px;
-					 	line-height: 64px;
-					}
-
-					// ipad portrait
-					@media (min-width: 481px) and (max-width: 1024px) {
-						margin-top: 28px;
-					 	font-size: 102px;
-					 	line-height: 104px;
-					}
-
-					// ipad landscape
-					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-						margin-top: 34px;
-						font-size: 136px;
-						line-height: 136px;
-					}
-				}
-
-				.tag {
-					font-size: 28px;
-					line-height: 28px;
-					font-weight: bold;
-					color: #fff;
-					text-transform: uppercase;
-
-					// iphone
-					@media (max-width: 480px) {
-					 	font-size: 8px;
-					 	line-height: 10px;
-					 }
-
-					// iphone landscape
-					@media (max-width: 480px) and (orientation: landscape) {
-					 	font-size: 14px;
-					 	line-height: 16px;
-					}
-
-					// ipad portrait
-					@media (min-width: 481px) and (max-width: 1024px) {
-					 	font-size: 20px;
-					 	line-height: 22px;
-					}
-
-					// ipad landscape
-					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-						font-size: 28px;
-						line-height: 28px;
-					}
-				}
-			}
-
-			.entry.last {
-				margin-right: 0px;
-			}
-		} // .clock
-
-		.footer {
-			padding-bottom: 20px;
-
-			.entry {
-				display: inline-block;
+				float: left;
 				width: 220px;
-				margin-right: 20px;
-				padding-left: 2px;
-
-				color: #fff;
-				font-size: 14px;
-				line-height: 16px;
 				font-weight: bold;
-				vertical-align: top;
+				font-style: italic;
+				font-size: 22px;
+				line-height: 24px;
+				margin-top: 8px;
 
-				// iphone
+				// retina displays
 				@media (max-width: 480px) {
-					font-size: 12px;
-					width: auto;
-				}
-
-				// ipad portrait
-				@media (min-width: 481px) and (max-width: 1024px) {
-				 	width: 160px;
-				 	margin-right: 20px;
-				}
-
-				// ipad landscape
-				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-					width: 222px;
-					margin-right: 20px;
-				}
-
-				.share {
-					display: inline-block;
-					vertical-align: middle;
-					width: 80px;
-					height: 20px;
-					padding-top: 12px;
-
-					// ipad portrait
-					@media (min-width: 481px) and (max-width: 1024px) {
-						display: block;
-						padding-top: 8px;
-					}
-
-					// ipad landscape
-					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-						display: inline-block;
-						padding-top: 12px;
-					}
-				}
-
-				.share.twitter {
-					padding-right: 14px; 
-				}
-
-				.share.facebook {
-					// iphone
-					@media (max-width: 480px) {
-						margin-top: -4px;
-					}
-				}
-			} // .entry
-
-			.entry.action {
-				text-align: center;
-
-				// iphone
-				@media (max-width: 480px) {
-					text-align: left;
+					width: 140px;
+					font-size: 14px;
+					line-height: 16px;
+					margin-top: 1px;
 				}
 			}
-
-			.entry.text {
-				padding-top: 8px;
+			span.right {
+				display: inline-block;
+				float: left;
+				margin-left: 20px;
 			}
 
-			.entry.large-text {
-				font-size: 32px;
-				line-height: 34px;
-
-				@media (max-width: 480px) {
-					font-size: 20px;
-					line-height: 22px;
-				}
+			a {
+				display: inline-block;
 			}
 
-			.entry.last {
-				margin-right: 0px;
-			}
-		} // .footer
-
+		} // p.tagline
 	} // .panel
-} // .countdown
+} // .welcome
