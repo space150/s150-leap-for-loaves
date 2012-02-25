@@ -28,10 +28,18 @@ body {
 	
 }
 
+body.ie #logo {
+	background-image: none;
+	
+	// fix for background-size in IE, from http://stackoverflow.com/a/6353808
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path 'welcome-logo.png' %>',sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path 'welcome-logo.png' %>',sizingMethod='scale')";
+}
+
 #logo.small {
 	width: 194px;
 	height: 139px;
-	background-size: 194px 139px;	
+	background-size: 194px 139px;
 
 	@media (max-width: 480px) {
 		width: 97px;
