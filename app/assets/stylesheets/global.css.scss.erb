@@ -3,6 +3,7 @@
 body {
 	background-color: #00d476;
 	color: #000;
+	font-size: 16px;
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
@@ -24,19 +25,18 @@ a:hover, a:active {
 }
 
 .panel {
-	position: relative;
 	width: 960px;
-	margin: auto;
+	margin: 0 auto;
 
 	@media (max-width: 1025px) {
 	    width: auto;
-	    padding: 0 20px;
+	    margin: 0 20px;
 	}
 }
 
 /* LOGO --------------------------------------------------------------- */
 
-#logo {
+h1.logo {
 	display: block;
 	overflow: hidden;
 	width: 388px;
@@ -53,7 +53,7 @@ a:hover, a:active {
 	}
 }
 
-body.ie #logo {
+body.ie h1.logo {
 	background-image: none;
 
 	// fix for background-size in IE, from http://stackoverflow.com/a/6353808
@@ -61,7 +61,7 @@ body.ie #logo {
 	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<%= asset_path 'welcome-logo.png' %>',sizingMethod='scale')";
 }
 
-#logo.mid {
+h1.logo.mid {
 	width: 230px;
 	height: 170px;
 	background-size: 230px 170px;
@@ -73,7 +73,7 @@ body.ie #logo {
 	}
 }
 
-#logo.small {
+h1.logo.small {
 	width: 194px;
 	height: 139px;
 	background-size: 194px 139px;
@@ -87,7 +87,7 @@ body.ie #logo {
 
 /* LOGO TAGLINE --------------------------------------------------------------- */
 
-#logo-tag {
+h2.logo-tag {
 	color: #fff;
 	font-size: 24px;
 	line-height: 26px;
@@ -103,7 +103,7 @@ body.ie #logo {
 	}
 }
 
-#logo-tag.small {
+h2.logo-tag.small {
 	font-size: 14px;
 	line-height: 16px;
 
@@ -114,7 +114,7 @@ body.ie #logo {
 	}
 }
 
-#logo-tag.mid {
+h2.logo-tag.mid {
 	font-size: 14px;
 	line-height: 16px;
 

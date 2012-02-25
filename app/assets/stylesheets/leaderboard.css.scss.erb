@@ -2,40 +2,99 @@
 .leaderboard {
 	position: relative;
 	margin-top: 40px;
-
-	a.icon.help {
-		position: absolute;
-		top: 0px;
-		right: 20px;
-	}
+	margin-bottom: 40px;
 
 	.panel {
+		position: relative;
+
+		.help {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 
 		.header {
 			margin-bottom: 40px;
 
 			.entry {
 				display: inline-block;
-				float: left;
+				vertical-align: top;
 				border-bottom: 10px solid black;
 				width: 270px;
 				height: 258px;
 				margin-right: 70px;
 
-			}
+			} // .entry
 
 			.entry.last {
 				margin-right: 0px;
 			}
-		}
+
+			.entry.score {
+				padding-top: 64px;
+				height: 194px;
+
+				h3 {
+					margin: 0;
+					padding: 0;
+					font-size: 38px;
+					line-height: 40px;
+				}
+
+				h4 {
+					margin: 0;
+					padding: 0;
+					color: #fff;
+					font-size: 60px;
+					line-height: 62px;
+				}
+
+			} // .entry.score
+
+			.entry.read-more {
+				margin-top: 16px;
+				height: 242px;
+				font-weight: bold;
+
+				.actions {
+					height: 20px;
+					margin-bottom: 34px;
+
+					.action {
+						display: inline-block;
+						vertical-align: middle;
+					}
+
+					.action.twitter {
+						width: 80px;
+						padding-right: 14px;
+					}
+					.action.facebook {
+						margin-top: -4px;
+						width: 80px;
+						padding-right: 14px;
+					}
+
+					.action.read {
+						display: none;
+					}
+
+				} // .actions
+
+				p.large {
+					font-size: 18px;
+				}
+
+			} // .entry.read-more
+
+		} // .header
 
 		.board {
 
-
 			.item {
 				display: inline-block;
+				vertical-align: top;
 				width: 80px;
-				height: 200px;
 				text-align: center;
 				margin-bottom: 20px;
 				margin-right: 16px;
@@ -47,8 +106,71 @@
 					margin-right: 16px;
 				}
 
+				h4 {
+					margin: 0;
+					padding: 0;
+					color: #fff;
+					font-size: 36px;
+					line-size: 38px;
+					padding-left: 16px;
+				}
+			} // .item
+		} // .board
+
+		.footer {
+			margin-top: 20px;
+
+			.pager {
+				float: left;
+
+				.pagination {
+
+					ul {
+						margin: 0;
+						padding: 0;
+
+						li { 
+							display: inline-block;
+							vertical-align: middle;
+							font-weight: bold;
+							font-size: 22px;
+							margin-right: 4px;
+
+							a {
+								text-decoration: none;
+							}
+						}
+
+						li.prev {
+							a {
+								display: inline-block;
+								width: 20px;
+								height: 30px;
+								overflow: hidden;
+								text-indent: -9999px;
+								background: url(<%= asset_path 'global-button-prev-arrow.png' %>) no-repeat;								
+							}
+						}
+
+						li.next {
+							a {
+								display: inline-block;
+								width: 20px;
+								height: 30px;
+								overflow: hidden;
+								text-indent: -9999px;
+								background: url(<%= asset_path 'global-button-arrow.png' %>) no-repeat;								
+							}
+						}
+					}
+				}
 			}
-		}
+
+			.leap-again {
+				float: right;
+			}
+
+		} // .footer
 
 	} // .panel
 } // .leaderboard

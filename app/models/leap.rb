@@ -1,18 +1,23 @@
 class Leap < ActiveRecord::Base
-  
+  extend ActionView::Helpers::NumberHelper
+
   attr_accessible :inches
   validates_presence_of :inches
+  validates :inches, :numericality => { :greater_than => 0.0, :less_than_or_equal_to => 50.0 }
   
   def formatted_inches
-    Leap.format_distance self.inches
+    "%d\"" % self.inches.ceil
   end
   
   def self.formatted_total_inches
-    format_distance Leap.sum(:inches)
-  end
-
-  def self.format_distance( distance )
-    '%.2f"' % distance
+    total = Leap.sum(:inches).ceil
+    feet = (total/12).floor
+    remaining = (total%12)
+    if feet > 0 
+      "%s'%d\"" % [ number_with_delimiter( feet ), remaining ]
+    else
+      "%d\"" % remaining
+    end
   end
 
   def anim_filename

@@ -36,77 +36,83 @@
 		background-position: center -28px;
 	}
 
-	a.icon.help {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-	}
-
 	.panel {
 
-		#logo {
-			position: relative;
-			margin-top: 400px;
+		.help {
+			float: right;
 
-			// iphone portrait
-			@media (max-width: 480px) {
-				margin-top: 180px;
-			}
-
-			// iphone landscape
-			@media (max-width: 480px) and (orientation: landscape) {
-				margin-top: 30px;
-			}
-
-			// ipad portrait
-			@media (min-width: 481px) and (max-width: 1024px) {
-				margin-top: 510px;
-			}
-
-			// ipad landscape
-			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-				margin-top: 252px;
+			a.icon.help {
+				margin-top: 20px;
 			}
 		}
 
-		p.tagline {
-			margin-top: 20px;
-			margin-bottom: 20px;
+		.splash {
+			float: left;
 
-			// retina displays
-			@media (max-width: 480px) {
-				margin-top: 10px;
+			h1.logo {
+				margin-top: 400px;
+
+				// iphone portrait
+				@media (max-width: 480px) {
+					margin-top: 180px;
+				}
+
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+					margin-top: 30px;
+				}
+
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+					margin-top: 510px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					margin-top: 252px;
+				}
+			} // h1.logo
+
+			p.tagline {
+				margin-top: 20px;
 				margin-bottom: 20px;
-			}
-
-			span.left {
-				display: inline-block;
-				float: left;
-				width: 220px;
-				font-weight: bold;
-				font-style: italic;
-				font-size: 22px;
-				line-height: 24px;
-				margin-top: 8px;
 
 				// retina displays
 				@media (max-width: 480px) {
-					width: 140px;
-					font-size: 14px;
-					line-height: 16px;
-					margin-top: 1px;
+					margin-top: 10px;
+					margin-bottom: 20px;
 				}
-			}
-			span.right {
-				display: inline-block;
-				float: left;
-				margin-left: 20px;
-			}
 
-			a {
-				display: inline-block;
-			}
+				span.left {
+					display: inline-block;
+					float: left;
+					width: 220px;
+					font-weight: bold;
+					font-style: italic;
+					font-size: 22px;
+					line-height: 24px;
+					margin-top: 8px;
 
-		} // p.tagline
+					// retina displays
+					@media (max-width: 480px) {
+						width: 140px;
+						font-size: 14px;
+						line-height: 16px;
+						margin-top: 1px;
+					}
+				}
+				span.right {
+					display: inline-block;
+					float: left;
+					margin-left: 20px;
+				}
+
+				a {
+					display: inline-block;
+				}
+
+			} // p.tagline
+		} // .splash
+
 	} // .panel
 } // .welcome

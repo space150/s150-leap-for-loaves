@@ -1,29 +1,45 @@
 <div id="welcome-panel" class="welcome clearfix">
-	<%= link_to 'Help', about_url, :class => 'help icon' %>
-	<div class="panel">
-		<h1 id="logo">LEAP FOR LOAVES</h1>
-		<h2 id="logo-tag">by <a href="http://www.space150.com">space150</a></h2>
-		<p class="tagline clearfix">
-			<span class="left">Use your Leap Day to help fight hunger.</span>
-			<span class="right"><a href="<%= leap_url %>" class="button">Play Now<i class="arrow"></i></a></span>
-		<p>
+	<div class="panel clearfix">
+		<div class="help">
+			<%= link_to 'Help', about_url, :class => 'help icon' %>
+		</div>
+		<div class="splash">
+			<h1 class="logo">LEAP FOR LOAVES</h1>
+			<h2 class="logo-tag">by <a href="http://www.space150.com">space150</a></h2>
+			<p class="tagline clearfix">
+				<span class="left">Use your Leap Day to help fight hunger.</span>
+				<span class="right"><a href="<%= leap_url %>" class="button">Play Now<i class="arrow"></i></a></span>
+			<p>
+		</div>
 	</div>
 </div>
 <div class="leaderboard">
-	<%= link_to 'Help', about_url, :class => 'help icon' %>
-	<div class="panel">
+	<div class="panel clearfix">
+		<div class="help">
+			<%= link_to 'Help', about_url, :class => 'help icon' %>
+		</div>
 		<div class="header clearfix">
-			<div class="entry">
-				<h1 id="logo" class="mid">LEAP FOR LOAVES</h1>
-				<h2 id="logo-tag" class="mid">by <a href="http://www.space150.com">space150</a></h2>
-			</div><div class="entry">
-				<h1>Global Leaps:</h1>
-				<h2><%= Leap.formatted_total_inches %></h2>
-				<a href="<%= leap_url %>" id="leap-again-button" class="leap-again button">Leap Again<i class="arrow"></i></a>
-			</div><div class="last entry">
-				<a href="#" id="read-more-button" class="clear button">Read More<i class="arrow"></i></a>
+			<div class="logo entry">
+				<h1 class="logo mid">LEAP FOR LOAVES</h1>
+				<h2 class="logo-tag mid">by <a href="http://www.space150.com">space150</a></h2>
+			</div><div class="score entry">
+				<h3>Global Leaps:</h3>
+				<h4><%= Leap.formatted_total_inches %></h4>
+			</div><div class="last read-more entry">
+				<div class="actions clearfix">
+					<div class="action twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://leapforloaves.com" data-text="February 29th is your extra day. Put it to good use at" data-hashtags="leapyear">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+					<div class="action facebook">
+						<div class="fb-like" data-href="http://www.leapforloaves.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="arial"></div>
+					</div>
+					<div class="action read">
+						<a href="#" id="read-more-button" class="clear button">Read More<i class="arrow"></i></a>
+					</div>
+				</div>
 				<div id="read-more-panel">
-					<p>People all over the globe are leaping on Leap Day to benefit Second Harvest food banks!</p>
+					<p class="large">People all over the globe are leaping on Leap Day to benefit Second Harvest food banks!</p>
 					<p>If you want to get involved, visit this site with a smartphone, or go to <a href="http://2harvest.org">2harvest.org</a> and learn how to help.</p>
 				</div>
 			</div>
@@ -34,10 +50,25 @@
 					<h4><%= leap.formatted_inches %></h4>
 				</div><% end %>
 		</div>
-		<%= page_navigation_links @leaps %>
+		<div class="footer clearfix">
+			<div class="pager">
+				<%= page_navigation_links @leaps %>
+			</div>
+			<div class="leap-again">
+				<a href="<%= leap_url %>" id="leap-again-button" class="leap-again button">Leap Again<i class="arrow"></i></a>
+			</div>
+		</div>
 	</div>
 </div>
 
 <% content_for :javascripts do %>
 	<%= javascript_include_tag "leaderboard" %>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 <% end %>

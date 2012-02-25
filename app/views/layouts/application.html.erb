@@ -17,8 +17,7 @@
 		<%= csrf_meta_tags %>
 		<script type="text/javascript"> ALREADY_VIEWED_INTRO = <%=params[:i] ? 'true' : 'false'%>; </script>
     </head>
-    <!--[if IE]><body class="ie"><![endif]-->
-    <!--[if !(IE)]><body><![endif]-->
+    <!--[if IE]><body class="ie"><![endif]--><!--[if !IE]><body><![endif]-->
 		<div class="container">
 			<%= yield %>
 		</div>
