@@ -16,87 +16,275 @@ body {
 }
 
 .leap {
-	
-	.help {
-		position: absolute;
-		right: 0;
-		top: 5px;
+	.panel {
 
-		@media (max-width: 480px) {
-			right: 5px;
-		}
-	}
-
-	.measuring {
-		position: relative;
-		//background-color: #eee;
-		float: left;
-		width: 50%;
-		height: 670px;
-		
-		.ruler {
+		.help {
 			position: absolute;
-			top: 10px;
-			left: 10px;
-			height: 650px;
-			overflow: hidden;
-			
-			.numbers {
-				// nothing
-			}
-		}
-	}
-	
-	.actions {
-		position: relative;
-		//background-color: #e0e0e0;
-		float: right;
-		width: 50%;
-		height: 670px;
-		
-		.output {
-			margin-left: 0;
-			margin-top: 10%;
-			margin-right: 10%;
+			right: 0;
+			top: 5px;
 
-			h1 {
-				margin: 0;
-				padding: 0;
-				font-size: 66px;
-				line-height: 68px;
-				margin-bottom: 10px;
-			}
-			
-			h1.light {
-				color: #fff;
+			@media (max-width: 480px) {
+				right: 5px;
 			}
 		}
-		
-		.button {
-			position: absolute;
-			bottom: 20px;
-			right: 10%;
-			width: 276px;
-			height: 394px;
+
+		.measuring {
+			position: relative;
+			float: left;
+			width: 45%;
+			height: 830px;
+
+			// iphone
+			@media (max-width: 480px) {
+				height: 415px;
+			}
 			
-			a.hold {
-				display: inline-block;
+			.ruler {
+				position: absolute;
 				overflow: hidden;
+				top: 0px;
+				left: 0px;
+				width: 132px;
+				height: 830px;
+				background-image: url(<%= asset_path 'leap-meter-background.png' %>);
+				background-position: 0px 0px;
+				background-size: 132px 830px;
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			    text-align: center;
+
+			    // iphone
+				@media (max-width: 480px) {
+					width: 66px;
+					height: 415px;
+					background-size: 66px 415px;
+				}
+				
+				ul.numbers {
+					width: 132px;
+					margin: 0;
+					padding: 0;
+					list-style-type: none;
+
+					// iphone
+					@media (max-width: 480px) {
+						width: 66px;
+					}
+
+					li {
+						text-align: center;
+						font-size: 50px;
+						line-height: 50px;
+						font-weight: bold;
+						color: #fff;
+						margin-bottom: 10px;
+
+						// iphone
+						@media (max-width: 480px) {
+							font-size: 24px;
+							line-height: 24px;
+							margin-bottom: 5px;
+						}
+					}
+				}
+			} // .ruler
+
+			.marker {
+				position: absolute;
+				bottom: 0px;
+				left: -6px;
+				width: 138px;
+				height: 23px;
+				background-image: url(<%= asset_path 'leap-meter-arrow.png' %>);
+				background-size: 138px 23px;
+
+				// iphone
+				@media (max-width: 480px) {
+					left: -3px;
+					width: 69px;
+					height: 12px;
+					background-size: 69px 12px;
+				}
+
+			} // .marker
+
+			.man {
+				position: absolute;
+				width: 58px;
+				height: 162px;
+				bottom: 0px;
+				left: 160px;
+
+				// iphone
+				@media (max-width: 480px) {
+					width: 26px;
+					height: 81px;
+					left: 80px;
+				}
+
+				.body {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 58px;
+					height: 162px;
+					overflow: hidden;
+					background-image: url(<%= asset_path 'leap-man.png' %>);
+					background-position: 0px 0px;
+					background-size: 174px 162px;
+					z-index: 7001;
+
+					// iphone
+					@media (max-width: 480px) {
+						width: 29px;
+						height: 81px;
+						background-size: 87px 81px;
+					}					
+				}
+
+				.shadow {
+					position: absolute;
+					bottom: -15px;
+					left: -15px;
+					width: 90px;
+					height: 34px;
+					overflow: hidden;
+					background-image: url(<%= asset_path 'leap-man-shadow.png' %>);
+					background-position: 90px 0px;
+					background-size: 90px 68px;
+					z-index: 7000;
+
+					// iphone
+					@media (max-width: 480px) {
+						bottom: -8px;
+						left: -8px;
+						width: 45px;
+						height: 17px;
+						background-size: 45px 34px;
+					}
+				}
+
+			} // .man
+
+			.man.ready {
+				.body {
+					background-position: -58px 0px;
+
+					// iphone
+					@media (max-width: 480px) {
+						background-position: -29px 0px;
+					}	
+				}
+			}
+			.man.leaping {
+				.body {
+					background-position: -116px 0px;
+
+					// iphone
+					@media (max-width: 480px) {
+						background-position: -58px 0px;
+					}	
+				}
+
+				.shadow {
+					background-position: 0px -34px;
+
+					// iphone
+					@media (max-width: 480px) {
+						background-position: -0px 17px;
+					}	
+				}
+			}
+			
+		} // .measuring
+		
+		.actions {
+			position: relative;
+			float: right;
+			width: 55%;
+			height: 830px;
+
+			// iphone
+			@media (max-width: 480px) {
+				height: 415px;
+			}
+			
+			.output {
+				margin-left: 0px;
+				margin-top: 10%;
+				margin-right: 10%;
+
+				// iphone
+				@media (max-width: 480px) {
+					margin-top: 20%;
+				}
+
+				h1 {
+					margin: 0;
+					padding: 0;
+					font-size: 66px;
+					line-height: 68px;
+					margin-bottom: 10px;
+
+					// iphone
+					@media (max-width: 480px) {
+						font-size: 28px;
+						line-height: 30px;
+					}
+				}
+				
+				h1.light {
+					color: #fff;
+				}
+			}
+			
+			.button {
+				position: absolute;
+				bottom: 20px;
+				right: 10%;
 				width: 276px;
 				height: 394px;
-				text-indent: -9999px;
-				background: url(<%= asset_path 'leap-hold-down-button.png' %>) no-repeat;
-				background-position: 0px 0px;
-				cursor: pointer;
-			}
 
-			a.hold.active {
-				background-position: -276px 0px;
+				// iphone
+				@media (max-width: 480px) {
+					width: 138px;
+					height: 197px;
+				}
+				
+				a.hold {
+					display: inline-block;
+					overflow: hidden;
+					width: 276px;
+					height: 394px;
+					text-indent: -9999px;
+					background: url(<%= asset_path 'leap-hold-down-button.png' %>) no-repeat;
+					background-size: 552px 394px;
+					background-position: 0px 0px;
+					cursor: pointer;
+
+					// iphone
+					@media (max-width: 480px) {
+						width: 138px;
+						height: 197px;
+						background-size: 276px 197px;
+					}
+				}
+
+				a.hold.active {
+					background-position: -276px 0px;
+
+					// iphone
+					@media (max-width: 480px) {
+						background-position: -138px 0px;
+					}
+				}
 			}
-		}
-	}
-	
-}
+		} // .actions
+
+	} // .panel
+} // .leap
 
 .result {
 	display: none;

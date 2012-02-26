@@ -18,13 +18,13 @@ var liftoffAnimation = {
 		this.initNumberBoard();
     },
 	initNumberBoard: function () {
-		this.numberBoard = $('#number-board');
+		this.numberBoard = $('#leap-ruler');
 		if ( this.numberBoard )
 		{
 			this.boardHeight = parseFloat(this.numberBoard.css('height'));
 			this.distancePerEntry = this.boardHeight/this.totalEntryCount;
 			this.windowHeight = parseFloat(this.numberBoard.parent().css('height'))
-			this.numberBoard.css( 'marginTop', -this.boardHeight );
+			this.numberBoard.css( 'marginTop', -this.boardHeight + this.windowHeight );
 		}
 	},
 	startLiftoffWithDate: function ( date ) {
@@ -36,7 +36,7 @@ var liftoffAnimation = {
 		if ( this.isRunning )
 		{
 			var inches = calculateInchesFromNowToDate( now, this.startingDate );
-			var targetPosition = (-this.boardHeight) + (this.distancePerEntry * inches);
+			var targetPosition = (-this.boardHeight + this.windowHeight) + (this.distancePerEntry * inches);
 			this.numberBoard.css( 'marginTop', targetPosition );
 
 			if ( inches < this.totalEntryCount )

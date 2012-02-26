@@ -30,6 +30,7 @@ var leap = {
 
 		$('#hold-feedback').html('<strong>B</strong>');
 		$('#hold-button').addClass('active');
+		$('#leap-man').addClass('ready').removeClass('leaping');
 
 		this.startCountdown();
 	},
@@ -38,6 +39,7 @@ var leap = {
 		
 		$('#hold-feedback').html('');
 		$('#hold-button').removeClass('active');
+		$('#leap-man').removeClass('ready').removeClass('leaping');
 		
 		if ( this.gameRunning && jumpDetector.isAirborne )
 			this.landed();
@@ -96,6 +98,7 @@ var leap = {
 		{
 			this.liftoffDate = new Date();
 			$('#jump-feedback').html('<strong>J</strong>');
+			$('#leap-man').addClass('leaping').removeClass('ready');
 			
 			// start the rocketship animation
 			liftoffAnimation.startLiftoffWithDate( this.liftoffDate );
@@ -133,6 +136,7 @@ var leap = {
 	},
 	updateViewForScore: function ( inches ) {
 		$('#jump-feedback').html('<strong>' + inches + '"</strong>');
+		$('#leap-man').removeClass('leaping').removeClass('ready');
 	},
 	scoreUploaded: function ( data ) {
 		var total = data.t;
