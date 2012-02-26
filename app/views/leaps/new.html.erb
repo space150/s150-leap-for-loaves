@@ -1,6 +1,11 @@
-<div class="row">
-	<div id="leap" class="span12">
-		<p><%= link_to 'Leaderboard', leaderboard_url(:i => 1), :class => 'btn btn-large' %></p>
+<% if params[:v] %>
+	<%= render :partial => 'debug' %>
+<% end%>
+<div id="leap-panel" class="leap">
+	<div class="panel clearfix">
+		<div class="help">
+			<%= link_to 'Help', about_url, :class => 'help icon' %>
+		</div>
 		<div class="measuring">
 			<div class="ruler">
 				<ul id="number-board" class="unstyled numbers">
@@ -10,19 +15,18 @@
 				</ul>
 			</div>
 		</div>
-		<div class="actions clearfix">
-			<div class="output">
-				<h1 id="message-output">Get ready to leap!</h1>
+		<div class="actions">
+			<div id="message-output" class="output">
+				<h1>Hold the button while you leap.</h1>
 			</div>
-			<% if params[:v] %>
-				<%= render :partial => 'debug' %>
-			<% end%>
 			<div class="button">
-				<a id="hold-button"></a>
+				<a id="hold-button" class="hold">Hold Down</a>
 			</div>
 		</div>
 	</div>
-	<div id="result" class="span12">
+</div>
+<div id="result-panel" class="result">
+	<div class="panel clearfix">
 		<h1>You added <span id="result-inches">XX"</span> for a grand total of <span id="result-total-inches">XX"</span></h1>
 		<p>
 			<%= link_to 'Jump Again', leap_url, :class => 'btn btn-large' %>
@@ -31,7 +35,9 @@
 		</p>
 	</div>
 </div>
-
+<% content_for :stylesheets do %>
+	<%= stylesheet_link_tag "leap", :media => "all" %>
+<% end %>
 <% content_for :javascripts do %>
 	<%= javascript_include_tag "leap" %>
 <% end %>

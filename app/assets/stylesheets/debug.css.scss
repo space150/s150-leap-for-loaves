@@ -1,8 +1,13 @@
 #debug {
-	position: absolute;
-	right: 10%;
-	top: 24%;
-	text-align: right;
+	margin: 10px 0px;
+	.output {
+		font-family: monospace;
+		font-size: 12px;
+
+		.next {
+			display: inline-block;
+		}
+	}
 }
 
 #sparks {

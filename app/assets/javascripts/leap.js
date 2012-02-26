@@ -11,8 +11,12 @@
 var leap = {
 	timer: null,
 	gameRunning: false,
-	countdownTimeLeft: 3,
+	countdownTime: 0,
+	countdownTicks: 3,
 	liftoffDate: null,
+	outputMessages: [ '<h1 class="light">Ready...</h1>', 
+		'<h1>Ready...</h1><h1 class="light">Set...</h1>', 
+		'<h1>Ready...</h1><h1>Set...</h1><h1 class="light">Leap!</h1>'],
 	init: function () {
 		this.initJumpDetector();
 		this.initHoldButton();
@@ -24,13 +28,16 @@ var leap = {
 	startGame: function (e) {
 		e.preventDefault();
 
-		$('#hold-feedback').html('<strong>PRESSED!</strong>');
+		$('#hold-feedback').html('<strong>B</strong>');
+		$('#hold-button').addClass('active');
+
 		this.startCountdown();
 	},
 	endGame: function (e) {
 		e.preventDefault();
 		
-		$('#hold-feedback').html('button not pressed.');
+		$('#hold-feedback').html('');
+		$('#hold-button').removeClass('active');
 		
 		if ( this.gameRunning && jumpDetector.isAirborne )
 			this.landed();
@@ -41,9 +48,10 @@ var leap = {
 		if ( this.gameRunning ) return;
 		
 		this.gameRunning = true;
-		$('#message-output').html('Leap in 3...');
+		$('#message-output').html(this.outputMessages[this.countdownTime]);
 		clearTimeout(this.timer);
 		this.timer = setTimeout(this.countdownTick.bind(this), 1000);
+
 		sparklines.running = true;
 		
 		jumpDetector.startup();
@@ -51,17 +59,17 @@ var leap = {
 	countdownTick: function () {
 		if ( !this.gameRunning ) return;
 		
-		this.countdownTimeLeft -= 1;
-		$('#message-output').html('Leap in ' + this.countdownTimeLeft + '...');
+		this.countdownTime += 1;
+		$('#message-output').html(this.outputMessages[this.countdownTime]);
 			
-		if ( this.countdownTimeLeft > 0 )
+		if ( this.countdownTime < this.countdownTicks )
 		{
 			clearTimeout(this.timer);
 			this.timer = setTimeout(this.countdownTick.bind(this), 1000);			
 		}
 		else
 		{
-			$('#message-output').html('GO! GO! GO!');
+			$('#message-output').html(this.outputMessages[this.countdownTime]);
 			jumpDetector.enableJumping();
 		}	
 	},
@@ -69,14 +77,15 @@ var leap = {
 		if ( !this.gameRunning ) return;
 		
 		sparklines.running = false;
+
 		this.gameRunning = false;
-		this.countdownTimeLeft = 3.0;
+		this.countdownTime = 0;
 		this.liftoffDate = null;
 		
 		jumpDetector.shutdown();
 		clearTimeout(this.timer);
 		
-		$('#message-output').html('Get ready to leap!');
+		$('#message-output').html('<h1>Hold the button while you leap.</h1>');
 	},
 	initJumpDetector: function () {
 		jumpDetector.registerForLiftoff(this.liftoff.bind(this));
@@ -86,7 +95,7 @@ var leap = {
 		if ( this.gameRunning )
 		{
 			this.liftoffDate = new Date();
-			$('#jump-feedback').html('<strong>JUMPING!</strong>');
+			$('#jump-feedback').html('<strong>J</strong>');
 			
 			// start the rocketship animation
 			liftoffAnimation.startLiftoffWithDate( this.liftoffDate );
@@ -123,15 +132,13 @@ var leap = {
 		}
 	},
 	updateViewForScore: function ( inches ) {
-		$('#jump-feedback').html('Last leap was ' + inches + ' inches in height');
+		$('#jump-feedback').html('<strong>' + inches + '"</strong>');
 	},
 	scoreUploaded: function ( data ) {
 		var total = data.t;
 		var inches = data.i;
-		console.log([inches, total]);
-		
-		$('#leap').hide();
-		$('#result').show();
+		$('#leap-panel').hide();
+		$('#result-panel').show();
 		$('#result-inches').html(inches);
 		$('#result-total-inches').html(total);
 	},

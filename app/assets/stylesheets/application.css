@@ -12,8 +12,5 @@
  *= require lib/bootstrap-reset
  *= require global
  *= require about-modal
- *= require countdown
- *= require welcome
- *= require leaderboard
- *= require leap
+ *= require debug
 */

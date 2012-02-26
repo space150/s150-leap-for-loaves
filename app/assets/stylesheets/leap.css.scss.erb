@@ -1,21 +1,44 @@
+body {
+	background-image: url(<%= asset_path 'global-background.png' %>);
+	background-size: 1080px 1080px;
+	background-repeat: no-repeat;
+	background-position: center top;
 
-#leap {
+	// retina displays
+	@media (max-width: 480px) {
+		background-size: 540px 540px;
+	}
+
+	// desktop
+	@media (min-width: 1025px) {
+		background-image: none;
+	}
+}
+
+.leap {
 	
-	$height: 300px;
-	$padding: 10%;
-	
+	.help {
+		position: absolute;
+		right: 0;
+		top: 5px;
+
+		@media (max-width: 480px) {
+			right: 5px;
+		}
+	}
+
 	.measuring {
 		position: relative;
-		background-color: #eee;
+		//background-color: #eee;
 		float: left;
-		width: 30%;
-		height: $height;
+		width: 50%;
+		height: 670px;
 		
 		.ruler {
 			position: absolute;
 			top: 10px;
-			left: $padding;
-			height: $height - 20px;
+			left: 10px;
+			height: 650px;
 			overflow: hidden;
 			
 			.numbers {
@@ -26,36 +49,55 @@
 	
 	.actions {
 		position: relative;
-		background-color: #e0e0e0;
+		//background-color: #e0e0e0;
 		float: right;
-		width: 70%;
-		height: $height;
+		width: 50%;
+		height: 670px;
 		
 		.output {
-			position: absolute;
-			top: 0px;
-			right: $padding;
-			padding-left: $padding;
-			text-align: right;
+			margin-left: 0;
+			margin-top: 10%;
+			margin-right: 10%;
+
+			h1 {
+				margin: 0;
+				padding: 0;
+				font-size: 66px;
+				line-height: 68px;
+				margin-bottom: 10px;
+			}
+			
+			h1.light {
+				color: #fff;
+			}
 		}
 		
 		.button {
 			position: absolute;
-			bottom: 0px;
-			right: $padding;
-			height: 80px;
+			bottom: 20px;
+			right: 10%;
+			width: 276px;
+			height: 394px;
 			
-			a {
+			a.hold {
 				display: inline-block;
-				width: 120px;
-				height: 80px;
-				background: url(<%= asset_path 'fpo-press-here-button.png' %>) no-repeat;				
+				overflow: hidden;
+				width: 276px;
+				height: 394px;
+				text-indent: -9999px;
+				background: url(<%= asset_path 'leap-hold-down-button.png' %>) no-repeat;
+				background-position: 0px 0px;
+				cursor: pointer;
+			}
+
+			a.hold.active {
+				background-position: -276px 0px;
 			}
 		}
 	}
 	
 }
 
-#result {
+.result {
 	display: none;
 }

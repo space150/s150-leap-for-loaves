@@ -25,6 +25,7 @@ a:hover, a:active {
 }
 
 .panel {
+	position: relative;
 	width: 960px;
 	margin: 0 auto;
 
@@ -203,6 +204,8 @@ a.icon.help {
 	width: 52px;
 	height: 52px;
 	background: url(<%= asset_path 'global-help-button.png' %>) no-repeat;
+	cursor: pointer;
+	z-index: 8999;
 
 	@media (max-width: 480px) {
 		width: 26px;

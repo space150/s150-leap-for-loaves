@@ -1,6 +1,10 @@
 <div id="debug">
-	<div id="hold-feedback" style="font-family:monospace">button not pressed.</div>
-	<div id="jump-feedback" style="font-family:monospace">currently not airborne.</div>
-    <canvas id="sparks" width="100" height="60"></canvas>
-    <div id="mm" style="font-family:monospace">no accel data.</div>
+	<div class="panel clearfix">
+	    <canvas id="sparks" width="300" height="60"></canvas>
+	    <div class="output clearfix">
+		    <div id="mm" class="next">no accel data.</div>
+		    <div id="hold-feedback" class="next"></div>
+			<div id="jump-feedback" class="next"></div>
+		</div>
+	</div>
 </div>
