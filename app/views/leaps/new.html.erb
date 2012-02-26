@@ -4,7 +4,7 @@
 		<div class="measuring">
 			<div class="ruler">
 				<ul id="number-board" class="unstyled numbers">
-					<% 50.downto(1) do |number| %>
+					<% Leap::MAX_INCHES.to_i.downto(1) do |number| %>
 						<li><%= '%02d' % number %></li>
 					<% end %>
 				</ul>

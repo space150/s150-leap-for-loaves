@@ -2,10 +2,11 @@ class Leap < ActiveRecord::Base
   extend ActionView::Helpers::NumberHelper
 
   self.per_page = 30
+  MAX_INCHES = 50.0
 
   attr_accessible :inches
   validates_presence_of :inches
-  validates :inches, :numericality => { :greater_than => 0.0, :less_than_or_equal_to => 50.0 }
+  validates :inches, :numericality => { :greater_than => 0.0, :less_than_or_equal_to => Leap::MAX_INCHES }
   
   def formatted_inches
     "%d\"" % self.inches.ceil

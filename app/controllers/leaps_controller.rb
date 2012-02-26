@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class LeapsController < ApplicationController
   caches_action :index, :cache_path => Proc.new{ |c| "leaderboard/#{params[:page] || 1}" }
   
@@ -26,19 +28,41 @@ class LeapsController < ApplicationController
   # POST /leaps
   # POST /leaps.json
   def create
-    
-    # TODO, re-calculate and check the validity of the data coming from the client
-    # spit it back if it doesn't match exactly!
-    
-    @leap = Leap.new( :inches => params[:d] )
 
-    respond_to do |format|
-      if @leap.save
-        format.html { redirect_to @leap, notice: 'Leap was successfully created.' }
-        format.json { render json: { i: @leap.formatted_inches, t: Leap.formatted_total_inches }, status: 200 }
-      else
+    # use the passed in data and csrf token to generate a validation hash
+    now = params[:n]
+    start = params[:s]
+    inches = params[:d]
+    csrf = session['_csrf_token']
+    digest = params[:x]
+    calced_digest = Digest::SHA1.hexdigest( "#{now}-#{start}-#{inches}-#{csrf}" )
+
+    # using the passed in data recalculate the result (to ensure the passed in data is at least
+    # internally consistant)
+    m1 = 0.16;
+    m2 = 0.0393700787; # the number of inches in 1mm
+    d1 = now.to_i - start.to_i;
+    d2 = d1*m1;
+    result = d2*m2;
+
+    # if our validation hash and recalculated result match, we are good to go!
+    if digest == calced_digest && inches.to_f == result
+      @leap = Leap.new( :inches => params[:d] )
+
+      respond_to do |format|
+        if @leap.save
+          format.html { redirect_to @leap, notice: 'Leap was successfully created.' }
+          format.json { render json: { i: @leap.formatted_inches, t: Leap.formatted_total_inches }, status: 200 }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @leap.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      # toss an error!
+      respond_to do |format|
         format.html { render action: "new" }
-        format.json { render json: @leap.errors, status: :unprocessable_entity }
+        format.json { render json: "EPIC FAILURE", status: :unprocessable_entity }
       end
     end
   end

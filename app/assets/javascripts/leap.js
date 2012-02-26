@@ -2,6 +2,8 @@
 //= require game/jumpDetector
 //= require game/liftoffAnimation
 //= require game/distanceCalculation
+//= require lib/2.5.3-crypto-sha1
+//= require lib/2.5.3-crypto-min
 //= require game/debug
 
 // leap is the main leap game entry point
@@ -105,10 +107,13 @@ var leap = {
 			// submit the high score
 			if ( motionDetector.hasMotionData() )
 			{
+				var csrf = $("meta[name='csrf-token']").attr('content');
+				var message = now + '-' + start + '-' + inches + '-' + csrf;
+				var digest = Crypto.util.bytesToHex(Crypto.SHA1( message, { asBytes: true } ));
 				$.ajax({
 					type: 'POST',
 					url: '/leaps.json',
-					data: { n: now, s: start, d: inches }, // TODO, generate a SHA1 hash of this data with the CSRF token
+					data: { n: now, s: start, d: inches, x: digest },
 					success: this.scoreUploaded.bind(this),
 					error: this.scoreUploadFailed.bind(this)
 				});			
@@ -131,7 +136,7 @@ var leap = {
 		$('#result-total-inches').html(total);
 	},
 	scoreUploadFailed: function ( error ) {
-		console.log('error: ' + error);
+		alert('error: ' + error);
 	}
 };
 
