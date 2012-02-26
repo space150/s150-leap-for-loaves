@@ -17,7 +17,7 @@ var liftoffAnimation = {
     init: function() {
     	// this causes issues with orientation change on mobile devices, so desktop users will just have
     	// to refresh thier browser when they resize thier window...
-		//$(window).resize(this.initNumberBoard.bind(this));
+		$(window).resize(this.initNumberBoard.bind(this));
 		this.initNumberBoard();
     },
 	initNumberBoard: function () {

@@ -16,6 +16,7 @@ body {
 }
 
 .leap {
+	margin-bottom: 20px;
 	.panel {
 
 		.help {
@@ -32,13 +33,28 @@ body {
 			position: relative;
 			float: left;
 			width: 40%;
-			height: 830px;
+			height: 748px;
 			margin-left: 5%;
 			margin-top: 20px;
 
-			// iphone
+			// iphone portrait
 			@media (max-width: 480px) {
-				height: 415px;
+				height: 374px;
+			}
+
+			// iphone landscape
+			@media (max-width: 480px) and (orientation: landscape) {
+				height: 336px;
+			}
+
+			// ipad portrait
+			@media (min-width: 481px) and (max-width: 1024px) {
+				height: 830px;
+			}
+
+			// ipad landscape
+			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+				height: 672px;
 			}
 			
 			.ruler {
@@ -47,34 +63,75 @@ body {
 				top: 0px;
 				left: 0px;
 				width: 132px;
-				height: 830px;
-				background-image: url(<%= asset_path 'leap-meter-background.png' %>);
-				background-position: 0px 0px;
-				background-size: 132px 830px;
+				height: 748px;
+				background-image: url(<%= asset_path 'leap-meter-iphone-port-background.png' %>);
+				background-size: 132px 748px;
 			    -webkit-background-size: cover;
 			    -moz-background-size: cover;
 			    -o-background-size: cover;
 			    background-size: cover;
 			    text-align: center;
 
-			    // iphone
+				// iphone portrait
 				@media (max-width: 480px) {
 					width: 66px;
-					height: 415px;
-					background-size: 66px 415px;
+					height: 374px;
+					background-size: 66px 374px;
+				}
+
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+					width: 66px;
+					height: 336px;
+					background-image: url(<%= asset_path 'leap-meter-ipad-land-background.png' %>);
+					background-size: 66px 336px;
+				}
+
+				// ipad portrait
+				@media (min-width: 481px) and (max-width: 1024px) {
+					width: 132px;
+					height: 830px;
+					background-image: url(<%= asset_path 'leap-meter-ipad-port-background.png' %>);
+					background-size: 132px 830px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					width: 132px;
+					height: 672px;
+					background-image: url(<%= asset_path 'leap-meter-ipad-land-background.png' %>);
+					background-size: 132px 672px;
 				}
 
 				.inset {
 					overflow: hidden;
 					width: 132px;
-					height: 810px;
+					height: 728px;
 					margin-top: 10px;
 
-					// iphone
+					// iphone portrait
 					@media (max-width: 480px) {
 						width: 66px;
-						height: 405px;
+						height: 364px;
 						margin-top: 5px;
+					}
+
+					// iphone landscape
+					@media (max-width: 480px) and (orientation: landscape) {
+						width: 66px;
+						height: 326px;
+					}
+
+					// ipad portrait
+					@media (min-width: 481px) and (max-width: 1024px) {
+						width: 132px;
+						height: 810px;
+					}
+
+					// ipad landscape
+					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+						width: 132px;
+						height: 652px;
 					}
 
 					ul.numbers {
@@ -221,11 +278,26 @@ body {
 			position: relative;
 			float: right;
 			width: 55%;
-			height: 830px;
+			height: 748px;
 
-			// iphone
+			// iphone portrait
 			@media (max-width: 480px) {
-				height: 415px;
+				height: 374px;
+			}
+
+			// iphone landscape
+			@media (max-width: 480px) and (orientation: landscape) {
+				height: 336px;
+			}
+
+			// ipad portrait
+			@media (min-width: 481px) and (max-width: 1024px) {
+				height: 830px;
+			}
+
+			// ipad landscape
+			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+				height: 672px;
 			}
 			
 			.output {
