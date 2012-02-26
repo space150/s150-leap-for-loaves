@@ -8,11 +8,13 @@
 		</div>
 		<div class="measuring">
 			<div class="ruler">
-				<ul id="leap-ruler" class="numbers">
-					<% Leap::MAX_INCHES.to_i.downto(1) do |number| %>
-						<li><%= '%02d' % number %>&quot;</li>
-					<% end %>
-				</ul>
+				<div class="inset">
+					<ul id="leap-ruler" class="numbers">
+						<% Leap::MAX_INCHES.to_i.downto(1) do |number| %>
+							<li><%= '%02d' % number %>&quot;</li>
+						<% end %>
+					</ul>
+				</div>
 			</div>
 			<div id="leap-marker" class="marker"></div>
 			<div id="leap-man" class="man">

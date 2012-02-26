@@ -15,6 +15,9 @@ var liftoffAnimation = {
 	startingDate: null,
 	isRunning: false,
     init: function() {
+    	// this causes issues with orientation change on mobile devices, so desktop users will just have
+    	// to refresh thier browser when they resize thier window...
+		//$(window).resize(this.initNumberBoard.bind(this));
 		this.initNumberBoard();
     },
 	initNumberBoard: function () {
@@ -23,7 +26,7 @@ var liftoffAnimation = {
 		{
 			this.boardHeight = parseFloat(this.numberBoard.css('height'));
 			this.distancePerEntry = this.boardHeight/this.totalEntryCount;
-			this.windowHeight = parseFloat(this.numberBoard.parent().css('height'))
+			this.windowHeight = parseFloat(this.numberBoard.parent().css('height'));
 			this.numberBoard.css( 'marginTop', -this.boardHeight + this.windowHeight );
 		}
 	},

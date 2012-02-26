@@ -31,8 +31,10 @@ body {
 		.measuring {
 			position: relative;
 			float: left;
-			width: 45%;
+			width: 40%;
 			height: 830px;
+			margin-left: 5%;
+			margin-top: 20px;
 
 			// iphone
 			@media (max-width: 480px) {
@@ -61,34 +63,49 @@ body {
 					height: 415px;
 					background-size: 66px 415px;
 				}
-				
-				ul.numbers {
+
+				.inset {
+					overflow: hidden;
 					width: 132px;
-					margin: 0;
-					padding: 0;
-					list-style-type: none;
+					height: 810px;
+					margin-top: 10px;
 
 					// iphone
 					@media (max-width: 480px) {
 						width: 66px;
+						height: 405px;
+						margin-top: 5px;
 					}
 
-					li {
-						text-align: center;
-						font-size: 50px;
-						line-height: 50px;
-						font-weight: bold;
-						color: #fff;
-						margin-bottom: 10px;
+					ul.numbers {
+						width: 132px;
+						margin: 0;
+						padding: 0;
+						list-style-type: none;
 
 						// iphone
 						@media (max-width: 480px) {
-							font-size: 24px;
-							line-height: 24px;
-							margin-bottom: 5px;
+							width: 66px;
 						}
-					}
-				}
+
+						li {
+							text-align: center;
+							font-size: 50px;
+							line-height: 50px;
+							font-weight: bold;
+							color: #fff;
+							margin-bottom: 10px;
+
+							// iphone
+							@media (max-width: 480px) {
+								font-size: 24px;
+								line-height: 24px;
+								margin-bottom: 5px;
+							}
+						}
+					} // ul.numbers
+				} // .inset
+
 			} // .ruler
 
 			.marker {
