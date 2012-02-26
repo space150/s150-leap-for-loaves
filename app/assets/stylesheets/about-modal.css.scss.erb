@@ -1,0 +1,60 @@
+#about-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 130%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: #000;
+	opacity: .9;
+	filter: alpha(opacity=90);
+	-moz-opacity: 0.9;
+	z-index: 9001;
+}
+
+#about-content {
+	display: none;
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	width: 80%;
+	margin: 0;
+	padding: 0;
+	z-index: 9002;
+	color: #fff;
+	margin-left: -40%;
+
+	// iphone
+	@media (max-width: 480px) {
+		font-size: 12px;
+		top: 20px;
+	}
+
+	.close
+	{
+		display: block;
+		float: right;
+		width: 32px;
+		height: 32px;
+		background: url(<%= asset_path 'global-close-button.png' %>) no-repeat scroll right top;
+		text-indent: -99999px;
+		overflow: hidden;
+		cursor: pointer;
+
+		// iphone
+		@media (max-width: 480px) {
+			right: -12px;
+		}
+	}
+
+	.close:hover
+	{
+		opacity: .99;
+		filter: alpha(opacity=99);
+		-moz-opacity: 0.99;
+	}
+}

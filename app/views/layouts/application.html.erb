@@ -21,6 +21,14 @@
 		<div class="container">
 			<%= yield %>
 		</div>
+		<div id="about-overlay"></div>
+		<div id="about-content">
+			<a class="close"></a>
+			<p>This is Leap for Loaves, a project by <a href="http://www.space150.com">space150</a>.</p>
+			<p>We decided that since we have an extra day this year, why not use it to do something good?</p>
+			<p>Why:<br />In honor of Leap Year, we're raising money for charity by asking people to literally leap up and down. Help us reach our goal of 1,000 feet, and we'll donate $1,000 to the <a href="http://www.2harvest.org">Second Harvest</a> food bank.</p>
+			<p>How:<br />The app uses your phone's accelerometer to find out how long your leap lasted. From that information we determine how high you went. It may not be scientific, but it is fun—and it's for a good cause, so who cares?</p>
+		</div>
 		<%= javascript_include_tag "application" %>
 		<%= yield :javascripts %>
     </body>

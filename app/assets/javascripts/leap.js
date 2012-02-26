@@ -19,11 +19,15 @@ var leap = {
 		$('#hold-button').bind('touchstart mousedown', this.startGame.bind(this))
 			.bind('touchend touchcancel mouseup mouseleave', this.endGame.bind(this));	
 	},
-	startGame: function () {
+	startGame: function (e) {
+		e.preventDefault();
+
 		$('#hold-feedback').html('<strong>PRESSED!</strong>');
 		this.startCountdown();
 	},
-	endGame: function () {
+	endGame: function (e) {
+		e.preventDefault();
+		
 		$('#hold-feedback').html('button not pressed.');
 		
 		if ( this.gameRunning && jumpDetector.isAirborne )
