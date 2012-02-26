@@ -45,6 +45,15 @@
 			<a href="<%= leap_url %>" class="button">Leap Again<i class="arrow"></i></a>
 			<a href="<%= leaderboard_url( :i => 1 ) %>" class="button">Leaderboard<i class="arrow"></i></a>
 		</div>
+		<div class="sharing">
+			<div class="share twitter">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://leapforloaves.com" data-text="February 29th is your extra day. Put it to good use at" data-hashtags="leapyear">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			<div class="share facebook">
+				<div class="fb-like" data-href="http://www.leapforloaves.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="arial"></div>
+			</div>
+		</div>
 	</div>
 </div>
 <% content_for :stylesheets do %>
@@ -52,4 +61,12 @@
 <% end %>
 <% content_for :javascripts do %>
 	<%= javascript_include_tag "leap" %>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 <% end %>

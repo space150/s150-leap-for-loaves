@@ -16,6 +16,7 @@ body {
 }
 
 .leap {
+	display: none;
 	margin-bottom: 30px;
 
 	// ipad portrait
@@ -382,7 +383,7 @@ body {
 } // .leap
 
 .result {
-	display: none;
+	display: block;
 	margin-bottom: 40px;
 
 	.panel {
@@ -399,7 +400,7 @@ body {
 
 		.message {
 			margin-top: 10%;
-			margin-bottom: 20px;
+			margin-bottom: 40px;
 			font-weight: bold;
 			font-size: 62px;
 			line-height: 62px;
@@ -415,6 +416,7 @@ body {
 		} // .message
 
 		.actions {
+			margin-bottom: 40px;
 
 			a { 
 				margin-right: 30px;
@@ -425,7 +427,24 @@ body {
 			}
 		} // .actions
 
+		.sharing {
+			height: 20px;
+			margin-bottom: 20px;
 
+			.share {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.share.twitter {
+				width: 80px;
+				padding-right: 14px;
+			}
+			.share.facebook {
+				margin-top: -4px;
+				width: 80px;
+			}
+		} // .sharing
 	}
 } // .result
 
