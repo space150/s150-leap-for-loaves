@@ -1,6 +1,8 @@
 class Leap < ActiveRecord::Base
   extend ActionView::Helpers::NumberHelper
 
+  self.per_page = 30
+
   attr_accessible :inches
   validates_presence_of :inches
   validates :inches, :numericality => { :greater_than => 0.0, :less_than_or_equal_to => 50.0 }
