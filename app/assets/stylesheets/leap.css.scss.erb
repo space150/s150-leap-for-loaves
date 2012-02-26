@@ -224,28 +224,6 @@ body {
 					}					
 				}
 
-				.shadow {
-					position: absolute;
-					bottom: -15px;
-					left: -15px;
-					width: 90px;
-					height: 34px;
-					overflow: hidden;
-					background-image: url(<%= asset_path 'leap-man-shadow.png' %>);
-					background-position: 90px 0px;
-					background-size: 90px 68px;
-					z-index: 7000;
-
-					// iphone
-					@media (max-width: 480px) {
-						bottom: -8px;
-						left: -8px;
-						width: 45px;
-						height: 17px;
-						background-size: 45px 34px;
-					}
-				}
-
 			} // .man
 
 			.man.ready {
@@ -267,15 +245,37 @@ body {
 						background-position: -58px 0px;
 					}	
 				}
+			}
 
-				.shadow {
-					background-position: 0px -34px;
+			.shadow {
+				position: absolute;
+				bottom: -15px;
+				left: 145px;
+				width: 90px;
+				height: 34px;
+				overflow: hidden;
+				background-image: url(<%= asset_path 'leap-man-shadow.png' %>);
+				background-position: 90px 0px;
+				background-size: 90px 68px;
+				z-index: 7000;
 
-					// iphone
-					@media (max-width: 480px) {
-						background-position: -0px 17px;
-					}	
+				// iphone
+				@media (max-width: 480px) {
+					bottom: -8px;
+					left: 73px;
+					width: 45px;
+					height: 17px;
+					background-size: 45px 34px;
 				}
+			}
+
+			.shadow.leaping {
+				background-position: 0px -34px;
+
+				// iphone
+				@media (max-width: 480px) {
+					background-position: -0px 17px;
+				}	
 			}
 			
 		} // .measuring
@@ -383,4 +383,49 @@ body {
 
 .result {
 	display: none;
-}
+	margin-bottom: 40px;
+
+	.panel {
+
+		.help {
+			position: absolute;
+			right: 0;
+			top: 5px;
+
+			@media (max-width: 480px) {
+				right: 5px;
+			}
+		}
+
+		.message {
+			margin-top: 10%;
+			margin-bottom: 20px;
+			font-weight: bold;
+			font-size: 62px;
+			line-height: 62px;
+
+			@media (max-width: 480px) {
+				font-size: 48px;
+				line-height: 50px;
+			}
+
+			.light {
+				color: #fff;
+			}
+		} // .message
+
+		.actions {
+
+			a { 
+				margin-right: 30px;
+
+				@media (max-width: 480px) {
+					margin-right: 15px;
+				}
+			}
+		} // .actions
+
+
+	}
+} // .result
+

@@ -19,8 +19,8 @@
 			<div id="leap-marker" class="marker"></div>
 			<div id="leap-man" class="man">
 				<div class="body"></div>
-				<div class="shadow"></div>
 			</div>
+			<div id="leap-shadow" class="shadow"></div>
 		</div>
 		<div class="actions">
 			<div id="message-output" class="output">
@@ -34,12 +34,17 @@
 </div>
 <div id="result-panel" class="result">
 	<div class="panel clearfix">
-		<h1>You added <span id="result-inches">XX"</span> for a grand total of <span id="result-total-inches">XX"</span></h1>
-		<p>
-			<%= link_to 'Jump Again', leap_url, :class => 'btn btn-large' %>
-			or
-			<%= link_to 'Leaderboard', leaderboard_url, :class => 'btn btn-large btn-primary' %>
-		</p>
+		<div class="help">
+			<%= link_to 'Help', about_url, :class => 'help icon' %>
+		</div>
+		<div class="message">
+			You just leaped <span id="result-inches" class="light">XX"</span>.<br />
+			That brings the total to <span id="result-total-inches" class="light">XX"</span>.
+		</div>	
+		<div class="actions">
+			<a href="<%= leap_url %>" class="button">Leap Again<i class="arrow"></i></a>
+			<a href="<%= leaderboard_url( :i => 1 ) %>" class="button">Leaderboard<i class="arrow"></i></a>
+		</div>
 	</div>
 </div>
 <% content_for :stylesheets do %>

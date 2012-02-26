@@ -7,12 +7,12 @@ var aboutModal = {
 		$("#about-content a.close").click(this.handleCloseClick);
 	},
 	close: function () {
-		$("#about-overlay").hide();
-		$("#about-content").hide();
+		$("#about-overlay").fadeOut('fast');
+		$("#about-content").fadeOut('fast');
 	},
 	open: function () {
-		$("#about-overlay").show();
-		$("#about-content").show();
+		$("#about-overlay").fadeIn('fast');
+		$("#about-content").fadeIn('fast');
 	},
 	handleOpenClick: function (e) {
 		e.preventDefault();

@@ -8,6 +8,11 @@
 
 var liftoffAnimation = {
 	numberBoard: null,
+	indicator: null,
+	indicatorBottomOffset: 0,
+	man: null,
+	manBottomOffset: 0,
+	manHeight: 0,
 	boardHeight: 0,
 	windowHeight: 0,
 	totalEntryCount: 50,
@@ -15,9 +20,7 @@ var liftoffAnimation = {
 	startingDate: null,
 	isRunning: false,
     init: function() {
-    	// this causes issues with orientation change on mobile devices, so desktop users will just have
-    	// to refresh thier browser when they resize thier window...
-		$(window).resize(this.initNumberBoard.bind(this));
+    	$(window).resize(this.reset.bind(this));
 		this.initNumberBoard();
     },
 	initNumberBoard: function () {
@@ -29,6 +32,16 @@ var liftoffAnimation = {
 			this.windowHeight = parseFloat(this.numberBoard.parent().css('height'));
 			this.numberBoard.css( 'marginTop', -this.boardHeight + this.windowHeight );
 		}
+		this.indicator = $('#leap-marker');
+		if ( this.indicator )
+			this.indicatorBottomOffset = parseFloat(this.indicator.css('bottom'));
+
+		this.man = $('#leap-man');
+		if ( this.man )
+		{
+			this.manBottomOffset = parseFloat(this.indicator.css('bottom'));
+			this.manHeight = this.man.height();
+		}
 	},
 	startLiftoffWithDate: function ( date ) {
 		this.startingDate = +date;
@@ -39,8 +52,25 @@ var liftoffAnimation = {
 		if ( this.isRunning )
 		{
 			var inches = calculateInchesFromNowToDate( now, this.startingDate );
-			var targetPosition = (-this.boardHeight + this.windowHeight) + (this.distancePerEntry * inches);
-			this.numberBoard.css( 'marginTop', targetPosition );
+			var distance = this.distancePerEntry * inches;
+
+			// if the calculated position is less than 1/2 of the window height, 
+			// then move the arrow instead of the numbers
+			if ( distance < this.windowHeight*0.5)
+			{
+				this.indicator.css( 'bottom', (distance+this.indicatorBottomOffset) );
+
+				// wait until the distance is half-way up the man's height before moving him
+				if ( distance > this.manHeight*0.5 )
+					this.man.css( 'bottom', (distance+this.manBottomOffset)-this.manHeight*0.5 );
+			}
+			else
+			{		
+				// otherwise, move the numbers, be sure to accommodate for half of the window height,
+				// which is the distance our arrow should have moved
+				var targetPosition = (-this.boardHeight + this.windowHeight) + (distance-this.windowHeight*0.5);
+				this.numberBoard.css( 'marginTop', targetPosition );
+			}
 
 			if ( inches < this.totalEntryCount )
 				return true;
@@ -54,7 +84,12 @@ var liftoffAnimation = {
 	}, 
 	landWithDistance: function ( distance ) {
 		this.isRunning = false;
-	}
+	},
+	reset: function () {
+    	this.numberBoard.css( 'marginTop', -this.boardHeight+this.windowHeight );
+    	this.indicator.css( 'bottom', this.indicatorBottomOffset );
+    	this.man.css( 'bottom', this.manBottomOffset );
+    }
 };
 
 this.liftoffAnimation = liftoffAnimation;
