@@ -154,7 +154,8 @@ var leap = {
 		$('#result-total-inches').html(total);
 	},
 	scoreUploadFailed: function ( error ) {
-		alert('error: ' + error);
+		console.log(error);
+		alert('an unknown error has occurred!');
 	}
 };
 
