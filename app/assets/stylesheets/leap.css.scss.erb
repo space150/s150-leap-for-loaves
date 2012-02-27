@@ -380,12 +380,20 @@ body {
 				@media (max-width: 480px) {
 					width: 145px;
 					height: 200px;
+					bottom: -20px;
+					right: -10px;
 				}
 
 				// iphone landscape
 				@media (max-width: 480px) and (orientation: landscape) {
 					bottom: -40px;
 					right: -4px;
+				}
+
+				// ipad landscape
+				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+					bottom: -40px;
+					right: 20px;
 				}
 				
 				a.hold {
