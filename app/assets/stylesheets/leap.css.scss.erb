@@ -50,7 +50,7 @@ body {
 
 			// iphone landscape
 			@media (max-width: 480px) and (orientation: landscape) {
-				height: 336px;
+				height: 170px;
 			}
 
 			// ipad portrait
@@ -60,7 +60,7 @@ body {
 
 			// ipad landscape
 			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-				height: 672px;
+				height: 580px;
 			}
 			
 			.ruler {
@@ -88,9 +88,9 @@ body {
 				// iphone landscape
 				@media (max-width: 480px) and (orientation: landscape) {
 					width: 66px;
-					height: 336px;
+					height: 170px;
 					background-image: url(<%= asset_path 'leap-meter-ipad-land-background.png' %>);
-					background-size: 66px 336px;
+					background-size: 66px 170px;
 				}
 
 				// ipad portrait
@@ -104,9 +104,9 @@ body {
 				// ipad landscape
 				@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
 					width: 132px;
-					height: 672px;
+					height: 580px;
 					background-image: url(<%= asset_path 'leap-meter-ipad-land-background.png' %>);
-					background-size: 132px 672px;
+					background-size: 132px 580px;
 				}
 
 				.inset {
@@ -125,7 +125,7 @@ body {
 					// iphone landscape
 					@media (max-width: 480px) and (orientation: landscape) {
 						width: 66px;
-						height: 326px;
+						height: 160px;
 					}
 
 					// ipad portrait
@@ -137,7 +137,7 @@ body {
 					// ipad landscape
 					@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
 						width: 132px;
-						height: 652px;
+						height: 560px;
 					}
 
 					ul.numbers {
@@ -314,7 +314,7 @@ body {
 
 			// iphone landscape
 			@media (max-width: 480px) and (orientation: landscape) {
-				height: 336px;
+				height: 170px;
 			}
 
 			// ipad portrait
@@ -324,7 +324,7 @@ body {
 
 			// ipad landscape
 			@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-				height: 672px;
+				height: 580px;
 			}
 			
 			.output {
@@ -337,14 +337,21 @@ body {
 					margin-top: 20%;
 				}
 
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+					margin-top: 16px;
+					margin-left: -40px;
+					margin-right: 100px;
+				}
+
 				h1 {
 					margin: 0;
 					padding: 0;
 					font-size: 66px;
 					line-height: 68px;
-					margin-bottom: 10px;
+					margin-bottom: 6px;
 
-					// iphone
+					// iphone portrait
 					@media (max-width: 480px) {
 						font-size: 28px;
 						line-height: 30px;
@@ -363,10 +370,16 @@ body {
 				width: 290px;
 				height: 400px;
 
-				// iphone
+				// iphone portrait
 				@media (max-width: 480px) {
 					width: 145px;
 					height: 200px;
+				}
+
+				// iphone landscape
+				@media (max-width: 480px) and (orientation: landscape) {
+					bottom: -40px;
+					right: -4px;
 				}
 				
 				a.hold {
@@ -425,9 +438,19 @@ body {
 			font-size: 62px;
 			line-height: 62px;
 
+			// iphone portrait
 			@media (max-width: 480px) {
+				margin-top: 30px;
+				margin-bottom: 20px;
 				font-size: 48px;
 				line-height: 50px;
+			}
+
+			// iphone landscape
+			@media (max-width: 480px) and (orientation: landscape) {
+				margin-top: 30px;
+				font-size: 34px;
+				line-height: 36px;
 			}
 
 			.light {

@@ -158,7 +158,6 @@ var leap = {
 		_gaq.push(['_trackEvent', 'leaps', 'leapSubmitted', undefined, inches]);
 	},
 	scoreUploadFailed: function ( error ) {
-		console.log(error);
 		alert('an unknown error has occurred!');
 	}
 };
