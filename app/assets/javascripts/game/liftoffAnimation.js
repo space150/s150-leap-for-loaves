@@ -11,7 +11,6 @@ var liftoffAnimation = {
 	indicator: null,
 	indicatorBottomOffset: 0,
 	man: null,
-	manBottomOffset: 0,
 	manHeight: 0,
 	boardHeight: 0,
 	windowHeight: 0,
@@ -21,7 +20,10 @@ var liftoffAnimation = {
 	isRunning: false,
     init: function() {
     	$(window).resize(this.reset.bind(this));
+
 		this.initNumberBoard();
+		this.initIndicator();
+		this.initMan();
     },
 	initNumberBoard: function () {
 		this.numberBoard = $('#leap-ruler');
@@ -32,16 +34,16 @@ var liftoffAnimation = {
 			this.windowHeight = parseFloat(this.numberBoard.parent().css('height'));
 			this.numberBoard.css( 'marginTop', -this.boardHeight + this.windowHeight );
 		}
+	},
+	initIndicator: function () {
 		this.indicator = $('#leap-marker');
 		if ( this.indicator )
 			this.indicatorBottomOffset = parseFloat(this.indicator.css('bottom'));
-
+	},
+	initMan: function () {
 		this.man = $('#leap-man');
 		if ( this.man )
-		{
-			this.manBottomOffset = parseFloat(this.indicator.css('bottom'));
 			this.manHeight = this.man.height();
-		}
 	},
 	startLiftoffWithDate: function ( date ) {
 		this.startingDate = +date;
@@ -62,7 +64,7 @@ var liftoffAnimation = {
 
 				// wait until the distance is half-way up the man's height before moving him
 				if ( distance > this.manHeight*0.5 )
-					this.man.css( 'bottom', (distance+this.manBottomOffset)-this.manHeight*0.5 );
+					this.man.css( 'height', distance+this.manHeight*0.5 );
 			}
 			else
 			{		
@@ -86,9 +88,9 @@ var liftoffAnimation = {
 		this.isRunning = false;
 	},
 	reset: function () {
-    	this.numberBoard.css( 'marginTop', -this.boardHeight+this.windowHeight );
+		this.initNumberBoard();
     	this.indicator.css( 'bottom', this.indicatorBottomOffset );
-    	this.man.css( 'bottom', this.manBottomOffset );
+    	this.man.css( 'height', this.manHeight );
     }
 };
 

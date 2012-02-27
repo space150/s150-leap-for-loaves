@@ -192,6 +192,7 @@ body {
 
 			.man {
 				position: absolute;
+				overflow: hidden;
 				width: 58px;
 				height: 162px;
 				bottom: 0px;
@@ -222,6 +223,26 @@ body {
 						height: 81px;
 						background-size: 87px 81px;
 					}					
+				}
+
+				.trail {
+					position: absolute;
+					top: 162px;
+					left: 14px;
+					width: 30px;
+					height: 275px;
+					background-image: url(<%= asset_path 'leap-man-trail.png' %>);
+					background-position: 0px 0px;
+					background-size: 30px 275px;
+
+					// iphone
+					@media (max-width: 480px) {
+						top: 81px;
+						left: 7px;
+						width: 15px;
+						height: 138px;
+						background-size: 15px 138px;
+					}
 				}
 
 			} // .man
@@ -339,40 +360,40 @@ body {
 				position: absolute;
 				bottom: 0px;
 				right: 10%;
-				width: 276px;
-				height: 394px;
+				width: 290px;
+				height: 400px;
 
 				// iphone
 				@media (max-width: 480px) {
-					width: 138px;
-					height: 197px;
+					width: 145px;
+					height: 200px;
 				}
 				
 				a.hold {
 					display: inline-block;
 					overflow: hidden;
-					width: 276px;
-					height: 394px;
+					width: 290px;
+					height: 400px;
 					text-indent: -9999px;
 					background: url(<%= asset_path 'leap-hold-down-button.png' %>) no-repeat;
-					background-size: 552px 394px;
+					background-size: 580px 400px;
 					background-position: 0px 0px;
 					cursor: pointer;
 
 					// iphone
 					@media (max-width: 480px) {
-						width: 138px;
-						height: 197px;
-						background-size: 276px 197px;
+						width: 145px;
+						height: 200px;
+						background-size: 290px 200px;
 					}
 				}
 
 				a.hold.active {
-					background-position: -276px 0px;
+					background-position: -290px 0px;
 
 					// iphone
 					@media (max-width: 480px) {
-						background-position: -138px 0px;
+						background-position: -145px 0px;
 					}
 				}
 			}
