@@ -1,3 +1,6 @@
+Leap for Loaves
+---------------
+
 Copyright (c) 2012 space150, LLC, http://www.space150.com
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -18,3 +21,48 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+Crypto-JS v2.5.3
+----------------
+
+http://code.google.com/p/crypto-js/
+(c) 2009-2012 by Jeff Mott. All rights reserved.
+http://code.google.com/p/crypto-js/wiki/License
+
+
+es5-shim.js
+-----------
+
+// -- kriskowal Kris Kowal Copyright (C) 2009-2011 MIT License
+// -- tlrobinson Tom Robinson Copyright (C) 2009-2010 MIT License (Narwhal Project)
+// -- dantman Daniel Friesen Copyright (C) 2010 XXX TODO License or CLA
+// -- fschaefer Florian Schäfer Copyright (C) 2010 MIT License
+// -- Gozala Irakli Gozalishvili Copyright (C) 2010 MIT License
+// -- kitcambridge Kit Cambridge Copyright (C) 2011 MIT License
+// -- kossnocorp Sasha Koss XXX TODO License or CLA
+// -- bryanforbes Bryan Forbes XXX TODO License or CLA
+// -- killdream Quildreen Motta Copyright (C) 2011 MIT Licence
+// -- michaelficarra Michael Ficarra Copyright (C) 2011 3-clause BSD License
+// -- sharkbrainguy Gerard Paapu Copyright (C) 2011 MIT License
+// -- bbqsrc Brendan Molloy (C) 2011 Creative Commons Zero (public domain)
+// -- iwyg XXX TODO License or CLA
+// -- DomenicDenicola Domenic Denicola Copyright (C) 2011 MIT License
+// -- xavierm02 Montillet Xavier Copyright (C) 2011 MIT License
+// -- Raynos Jake Verbaten Copyright (C) 2011 MIT Licence
+// -- samsonjs Sami Samhuri Copyright (C) 2010 MIT License
+// -- rwldrn Rick Waldron Copyright (C) 2011 MIT License
+// -- lexer Alexey Zakharov XXX TODO License or CLA
+
+Copyright (c) 2009, 280 North Inc. http://280north.com/
+MIT License. http://github.com/280north/narwhal/blob/master/README.md
+
+
+Bootstrap v2.0.1
+----------------
+
+Copyright 2012 Twitter, Inc
+Licensed under the Apache License v2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
+Designed and built with all the love in the world @twitter by @mdo and @fat.
