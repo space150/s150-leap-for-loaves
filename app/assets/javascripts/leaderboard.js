@@ -15,6 +15,9 @@ var leaderboard = {
 			$('.leap-again.button').addClass('hidden');
 
 		$('#read-more-button').click(this.handleReadMoreClick);
+
+        _gaq.push(['_setCustomVar', 1, 'motionCapable', hasMotionData, 2]);
+        _gaq.push(['_trackPageview', '/leaderboard']);
     },
     handleReadMoreClick: function () {
     	var button = $('#read-more-button');

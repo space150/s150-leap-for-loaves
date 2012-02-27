@@ -4,6 +4,7 @@ var countdown = {
 	timer: null,
     init: function() {
     	this.timer = setTimeout(this.tick.bind(this), 1000);
+        _gaq.push(['_trackPageview', '/countdown']);
     },
     tick: function () {
     	var now = new Date();

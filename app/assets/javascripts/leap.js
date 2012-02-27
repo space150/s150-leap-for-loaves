@@ -20,6 +20,8 @@ var leap = {
 	init: function () {
 		this.initJumpDetector();
 		this.initHoldButton();
+
+		 _gaq.push(['_trackPageview', '/leap']);
 	},
 	initHoldButton: function () {
 		$('#hold-button').bind('touchstart mousedown', this.startGame.bind(this))
@@ -134,7 +136,7 @@ var leap = {
 					data: { n: now, s: start, d: inches, x: digest },
 					success: this.scoreUploaded.bind(this),
 					error: this.scoreUploadFailed.bind(this)
-				});			
+				});
 			}
 
 			this.completeSession();
@@ -152,6 +154,8 @@ var leap = {
 		$('#result-panel').show();
 		$('#result-inches').html(inches);
 		$('#result-total-inches').html(total);
+
+		_gaq.push(['_trackEvent', 'leaps', 'leapSubmitted', undefined, inches]);
 	},
 	scoreUploadFailed: function ( error ) {
 		console.log(error);
