@@ -29,9 +29,9 @@ var liftoffAnimation = {
 		this.numberBoard = $('#leap-ruler');
 		if ( this.numberBoard )
 		{
-			this.boardHeight = parseFloat(this.numberBoard.css('height'));
+			this.boardHeight = this.numberBoard.height();
 			this.distancePerEntry = this.boardHeight/this.totalEntryCount;
-			this.windowHeight = parseFloat(this.numberBoard.parent().css('height'));
+			this.windowHeight = this.numberBoard.parent().height();
 			this.numberBoard.css( 'marginTop', -this.boardHeight + this.windowHeight );
 		}
 	},
