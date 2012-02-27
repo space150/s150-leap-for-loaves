@@ -4,6 +4,7 @@
 //= require game/distanceCalculation
 //= require lib/2.5.3-crypto-sha1
 //= require lib/2.5.3-crypto-min
+//= require lib/jquery-cookie
 //= require game/debug
 
 // leap is the main leap game entry point
@@ -21,7 +22,21 @@ var leap = {
 		this.initJumpDetector();
 		this.initHoldButton();
 
+		if ( !this.checkForCookies() )
+			alert( 'Cookies are not enabled. Please enable cookies in your browser settings to leap for loaves!' );
+
 		 _gaq.push(['_trackPageview', '/leap']);
+	},
+	checkForCookies: function () {
+		var c = 'test_cookie';
+	    $.cookie( c, true );
+	    if ( $.cookie( c ) )
+	    {
+			$.cookie( c, null );
+			return true;
+	    }
+	    else
+	    	return false;
 	},
 	initHoldButton: function () {
 		$('#hold-button').bind('touchstart mousedown', this.startGame.bind(this))
