@@ -4,7 +4,7 @@
 			<%= link_to 'Help', about_url, :class => 'help icon' %>
 		</div>
 		<div class="splash">
-			<h1 class="logo">LEAP FOR LOAVES</h1>
+			<a href="<%= root_url %>" class="logo">LEAP FOR LOAVES</a>
 			<h2 class="logo-tag">by <a href="http://www.space150.com">space150</a></h2>
 			<p class="tagline clearfix">
 				<span class="left">Use your Leap Day to help fight hunger.</span>
@@ -20,7 +20,7 @@
 		</div>
 		<div class="header clearfix">
 			<div class="logo entry">
-				<h1 class="logo mid">LEAP FOR LOAVES</h1>
+				<a href="<%= root_url %>" class="logo mid">LEAP FOR LOAVES</a>
 				<h2 class="logo-tag mid">by <a href="http://www.space150.com">space150</a></h2>
 			</div><div class="score entry">
 				<h3>Global Leaps:</h3>
@@ -33,6 +33,9 @@
 					</div>
 					<div class="action facebook">
 						<div class="fb-like" data-href="http://www.leapforloaves.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="arial"></div>
+					</div>
+					<div class="action leap">
+						<a href="<%= leap_url %>" class="leap-again button">Leap Again<i class="arrow"></i></a>
 					</div>
 					<div class="action read">
 						<a href="#" id="read-more-button" class="clear button">Read More<i class="arrow"></i></a>
@@ -55,7 +58,7 @@
 				<%= page_navigation_links @leaps %>
 			</div>
 			<div class="leap-again">
-				<a href="<%= leap_url %>" id="leap-again-button" class="leap-again button">Leap Again<i class="arrow"></i></a>
+				<a href="<%= leap_url %>" class="leap-again button">Leap Again<i class="arrow"></i></a>
 			</div>
 		</div>
 	</div>

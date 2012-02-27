@@ -10,9 +10,9 @@ var leaderboard = {
 			$('#welcome-panel').hide();
 
 		if ( hasMotionData )
-			$('#leap-again-button').show();
+			$('.leap-again.button').removeClass('hidden');
 		else
-			$('#leap-again-button').hide();
+			$('.leap-again.button').addClass('hidden');
 
 		$('#read-more-button').click(this.handleReadMoreClick);
     },

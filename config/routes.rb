@@ -7,6 +7,10 @@ Leapforloaves::Application.routes.draw do
   match 'welcome' => 'welcome#index', :via => :get, :as => :welcome
   match 'about' => 'welcome#about', :via => :get, :as => :about
   
+  # pre-launch
   root :to => 'welcome#index', :via => :get
+  
+  # launch
+  #root :to => 'leaps#index', :via => :get
   
 end
