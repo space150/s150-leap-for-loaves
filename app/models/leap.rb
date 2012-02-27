@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class Leap < ActiveRecord::Base
   extend ActionView::Helpers::NumberHelper
 
@@ -27,6 +29,12 @@ class Leap < ActiveRecord::Base
     "tier-%d-anim-%d.gif" % [self.tier, rand(3)]
   end
 
+  def self.validate_digest( now, start, inches, csrf, digest )
+    calced_digest = Digest::SHA1.hexdigest( "#{now}-#{start}-#{inches}-#{csrf}" )
+    result = calculate_inches_from_now_to_date now, start
+    digest == calced_digest && inches.to_f == result
+  end
+
   def tier
     if self.inches > 20.0
       3
@@ -35,6 +43,20 @@ class Leap < ActiveRecord::Base
     else
       1
     end
+  end
+
+  def self.calculate_inches_from_now_to_date( now, start )
+    # using the passed in data recalculate the result (to ensure the passed in data is at least
+    # internally consistant)
+    m1 = 0.16;
+    m2 = 0.0393700787; # the number of inches in 1mm
+    d1 = now.to_i - start.to_i;
+    d2 = d1*m1;
+    result = d2*m2;
+    if result > Leap::MAX_INCHES
+      result = Leap::MAX_INCHES
+    end
+    result
   end
   
 end

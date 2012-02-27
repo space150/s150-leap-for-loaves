@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  distance: 1
-  type: 
+  inches: 1.4
 
 two:
-  distance: 1
-  type: 
+  inches: 40.02

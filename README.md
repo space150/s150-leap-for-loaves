@@ -16,11 +16,21 @@ The app uses your phone's accelerometer to find out how long your leap lasted. F
 
 ## Requirements
 
+Leap for Loaves was built with Ruby on Rails 3.2.1 and uses Bundler for gem management. You will need the following on your system:
+
 * Ruby 1.9.2 ([rvm](http://beginrescueend.com) is recommended)
-* Bundler
+* [Bundler](http://gembundler.com) 1.0
 * PostgreSQL
 
-Simply run <code>bundle install</code> and you will be up and running in no time.
+After cloning the repository, simple run 
+
+<code>bundle install</code>
+
+and
+
+<code>rake db:migrate</code>
+
+to get everything up and running.
 
 ## Licensing
 
