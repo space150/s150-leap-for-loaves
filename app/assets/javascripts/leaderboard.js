@@ -4,14 +4,15 @@ var leaderboard = {
     init: function() {
         var hasMotionData = motionDetector.hasMotionData();
         var isFirefox = (navigator.userAgent.match(/Firefox/i) != null);
-        var leapingEnabled = (!ALREADY_VIEWED_INTRO && !isFirefox && hasMotionData);
-		
-        if ( leapingEnabled )
-			$('#welcome-panel').show();
-		else
-			$('#welcome-panel').hide();
 
-		if ( hasMotionData )
+        if ( ALREADY_VIEWED_INTRO )
+            $('#welcome-panel').hide();
+        else if ( !isFirefox && hasMotionData )
+            $('#welcome-panel').show();
+		else
+            $('#welcome-panel').hide();
+
+		if ( !isFirefox && hasMotionData )
 			$('.leap-again.button').removeClass('hidden');
 		else
 			$('.leap-again.button').addClass('hidden');
