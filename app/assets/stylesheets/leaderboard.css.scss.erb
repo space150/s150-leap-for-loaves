@@ -380,6 +380,10 @@
 
 							a {
 								text-decoration: none;
+								color: #fff;
+							}
+							a:hover {
+								background-color: #000;
 							}
 						}
 
@@ -394,6 +398,10 @@
 								background-size: 20px 30px;
 								cursor: pointer;
 							}
+
+							a:hover {
+								background: #000 url(<%= asset_path 'global-button-prev-arrow.png' %>) no-repeat;
+							}
 						}
 
 						li.next {
@@ -406,6 +414,20 @@
 								background: url(<%= asset_path 'global-button-arrow.png' %>) no-repeat;	
 								background-size: 20px 30px;	
 								cursor: pointer;						
+							}
+
+							a:hover {
+								background: #000 url(<%= asset_path 'global-button-arrow.png' %>) no-repeat;
+							}
+						}
+
+						li.active {
+							a {
+								text-decoration: none;
+								color: #000;
+							}
+							a:hover {
+								background-color: #fd2fd1;
 							}
 						}
 					}
