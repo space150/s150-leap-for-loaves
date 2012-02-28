@@ -2,9 +2,11 @@
 
 var leaderboard = {
     init: function() {
-    	var hasMotionData = motionDetector.hasMotionData();
-
-		if ( !ALREADY_VIEWED_INTRO && hasMotionData )
+        var hasMotionData = motionDetector.hasMotionData();
+        var isFirefox = (navigator.userAgent.match(/Firefox/i) != null);
+        var leapingEnabled = (!ALREADY_VIEWED_INTRO && !isFirefox && hasMotionData);
+		
+        if ( leapingEnabled )
 			$('#welcome-panel').show();
 		else
 			$('#welcome-panel').hide();
@@ -14,12 +16,13 @@ var leaderboard = {
 		else
 			$('.leap-again.button').addClass('hidden');
 
-		$('#read-more-button').click(this.handleReadMoreClick);
+		$('#read-more-button').bind('touchstart mousedown', this.handleReadMoreClick.bind(this));
 
         _gaq.push(['_setCustomVar', 1, 'motionCapable', hasMotionData, 2]);
         _gaq.push(['_trackPageview', '/leaderboard']);
     },
-    handleReadMoreClick: function () {
+    handleReadMoreClick: function (e) {
+        e.preventDefault();
     	var button = $('#read-more-button');
     	var panel = $('#read-more-panel');
     	if ( panel.is(':hidden') )
