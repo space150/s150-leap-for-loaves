@@ -2,9 +2,9 @@
 	
 var aboutModal = {
 	init: function () {
-		$('a.help.icon').click(this.handleOpenClick);
-		$("#about-overlay").click(this.handleCloseClick);
-		$("#about-content a.close").click(this.handleCloseClick);
+		$('a.help.icon').bind('touchstart mousedown', this.handleOpenClick.bind(this))
+		$("#about-overlay").bind('touchstart mousedown', this.handleCloseClick.bind(this));
+		$("#about-content a.close").bind('touchstart mousedown', this.handleCloseClick.bind(this));
 	},
 	close: function () {
 		$("#about-overlay").fadeOut('fast');
