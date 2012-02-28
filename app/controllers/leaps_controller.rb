@@ -1,6 +1,11 @@
 class LeapsController < ApplicationController
-  caches_action :index, :cache_path => Proc.new{ |c| "leaderboard/#{params[:page] || 1}" }
+  caches_action :index, :cache_path => Proc.new{ |c| "leaps/#{params[:page] || 1}" }
   
+  # GET /leaderboard
+  def leaderboard
+    redirect_to '/leaps'
+  end
+
   # GET /leaps
   # GET /leaps.json
   def index
