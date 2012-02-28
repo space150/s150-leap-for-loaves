@@ -1,6 +1,7 @@
 //= require lib/es5-shim
 //= require jquery
 //= require jquery_ujs
+//= require lib/errorDialog
 //= require lib/aboutModal
 
 if ( window.addEventListener ) {

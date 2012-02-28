@@ -39,6 +39,31 @@ a:hover, a:active {
 	display: none !important;
 }
 
+/* ERROR --------------------------------------------------------------- */
+
+#error-panel {
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 9002;
+	background-color: #cc0000;
+	border-bottom: #660000 1px solid;
+	color: #fff;
+	padding: 0px;
+	text-align: center;
+	font-size: 18px;
+
+	@media (max-width: 1025px) {
+		font-size: 14px;
+	}
+
+	.message {
+		padding: 10px 10px;
+	}
+}
+
 /* LOGO --------------------------------------------------------------- */
 
 a.logo {

@@ -18,12 +18,15 @@ var leap = {
 	outputMessages: [ '<h1 class="light">Ready...</h1>', 
 		'<h1>Ready...</h1><h1 class="light">Set...</h1>', 
 		'<h1>Ready...</h1><h1>Set...</h1><h1 class="light">Leap!</h1>'],
+	cookieMessage: 'Cookies are not enabled. Please enable cookies in your browser settings to leap for loaves!',
 	init: function () {
 		this.initJumpDetector();
 		this.initHoldButton();
 
 		if ( !this.checkForCookies() )
-			alert( 'Cookies are not enabled. Please enable cookies in your browser settings to leap for loaves!' );
+		{
+			errorDialog.show( this.cookieMessage );
+		}
 
 		 _gaq.push(['_trackPageview', '/leap']);
 	},
@@ -95,6 +98,7 @@ var leap = {
 		{
 			$('#message-output').html(this.outputMessages[this.countdownTime]);
 			jumpDetector.enableJumping();
+			errorDialog.close();
 		}	
 	},
 	completeSession: function () {
@@ -137,8 +141,6 @@ var leap = {
 			// complete the liftoff animation
 			liftoffAnimation.landWithDistance( inches );
 
-			this.updateViewForScore( inches );
-
 			// submit the high score
 			if ( motionDetector.hasMotionData() )
 			{
@@ -155,12 +157,14 @@ var leap = {
 			}
 
 			this.completeSession();
+
+			this.updateViewForScore( inches );
 		}
 	},
 	updateViewForScore: function ( inches ) {
 		$('#jump-feedback').html('<strong>' + inches + '"</strong>');
-		$('#leap-man').removeClass('leaping').removeClass('ready');
-		$('#leap-shadow').removeClass('leaping');
+		$('#message-output').html('<h1>One Moment...</h1>');
+		$('#hold-button').addClass('hidden');
 	},
 	scoreUploaded: function ( data ) {
 		var total = data.t;
@@ -173,7 +177,7 @@ var leap = {
 		_gaq.push(['_trackEvent', 'leaps', 'leapSubmitted', undefined, inches]);
 	},
 	scoreUploadFailed: function ( error ) {
-		alert('an unknown error has occurred!');
+		errorDialog.show( this.cookieMessage );
 	}
 };
 
