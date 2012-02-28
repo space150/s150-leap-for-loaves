@@ -4,8 +4,7 @@ Leapforloaves::Application.routes.draw do
   match 'leaps' => 'leaps#create', :via => :post, :as => :new_leap
   match 'leap' => 'leaps#new', :via => :get, :as => :leap
   
-  match 'welcome' => 'welcome#index', :via => :get, :as => :welcome
-  match 'about' => 'welcome#about', :via => :get, :as => :about
+  match 'countdown' => 'welcome#index', :via => :get, :as => :countdown
   
   # pre-launch
   root :to => 'welcome#index', :via => :get
