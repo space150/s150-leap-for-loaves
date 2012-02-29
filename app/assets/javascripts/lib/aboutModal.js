@@ -3,8 +3,6 @@
 var aboutModal = {
 	init: function () {
 		$('a.help.icon').bind('touchstart mousedown', this.handleOpenClick.bind(this))
-		$("#about-overlay").bind('touchstart mousedown', this.handleCloseClick.bind(this));
-		$("#about-content").bind('touchstart mousedown', this.handleCloseClick.bind(this));
 		$("#about-content a.close").bind('touchstart mousedown', this.handleCloseClick.bind(this));
 	},
 	close: function () {

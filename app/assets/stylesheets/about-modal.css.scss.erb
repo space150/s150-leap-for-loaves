@@ -28,10 +28,17 @@
 	color: #fff;
 	margin-left: -40%;
 
-	// iphone
+	// iphone portrait
 	@media (max-width: 480px) {
 		font-size: 12px;
 		top: 20px;
+	}
+
+	// iphone landscape
+	@media (max-width: 480px) and (orientation: landscape) {
+		font-size: 10px;
+		top: 10px;
+		width: 90%;
 	}
 
 	.close
