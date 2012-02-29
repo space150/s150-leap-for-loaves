@@ -141,20 +141,8 @@ var leap = {
 			// complete the liftoff animation
 			liftoffAnimation.landWithDistance( inches );
 
-			// submit the high score
 			if ( motionDetector.hasMotionData() )
-			{
-				var csrf = $("meta[name='csrf-token']").attr('content');
-				var message = now + '-' + start + '-' + inches + '-' + csrf;
-				var digest = Crypto.util.bytesToHex(Crypto.SHA1( message, { asBytes: true } ));
-				$.ajax({
-					type: 'POST',
-					url: '/leaps.json',
-					data: { n: now, s: start, d: inches, x: digest },
-					success: this.scoreUploaded.bind(this),
-					error: this.scoreUploadFailed.bind(this)
-				});
-			}
+				this.scoreUploaded( inches );
 
 			this.completeSession();
 
@@ -166,15 +154,10 @@ var leap = {
 		$('#message-output').html('<h1>One Moment...</h1>');
 		$('#hold-button').addClass('hidden');
 	},
-	scoreUploaded: function ( data ) {
-		var total = data.t;
-		var inches = data.i;
+	scoreUploaded: function ( inches ) {
 		$('#leap-panel').hide();
 		$('#result-panel').show();
 		$('#result-inches').html(inches);
-		$('#result-total-inches').html(total);
-
-		_gaq.push(['_trackEvent', 'leaps', 'leapSubmitted', undefined, inches]);
 	},
 	scoreUploadFailed: function ( error ) {
 		errorDialog.show( this.cookieMessage );

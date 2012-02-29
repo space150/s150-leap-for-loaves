@@ -5,6 +5,9 @@ var leaderboard = {
         var hasMotionData = motionDetector.hasMotionData();
         var isFirefox = (navigator.userAgent.match(/Firefox/i) != null);
 
+        if ( !ALREADY_VIEWED_INTRO )
+            aboutModal.open();
+
         if ( ALREADY_VIEWED_INTRO )
             $('#welcome-panel').hide();
         else if ( !isFirefox && hasMotionData )

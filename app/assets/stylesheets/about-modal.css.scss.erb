@@ -19,7 +19,7 @@
 #about-content {
 	display: none;
 	position: fixed;
-	top: 20%;
+	top: 16%;
 	left: 50%;
 	width: 80%;
 	margin: 0;
@@ -27,34 +27,54 @@
 	z-index: 9002;
 	color: #fff;
 	margin-left: -40%;
+	font-size: 32px;
+	line-height: 44px;
 
 	// iphone portrait
 	@media (max-width: 480px) {
-		font-size: 12px;
-		top: 20px;
+		top: 10%;
+		font-size: 18px;
+		line-height: 22px;
 	}
 
 	// iphone landscape
 	@media (max-width: 480px) and (orientation: landscape) {
-		font-size: 10px;
-		top: 10px;
-		width: 90%;
+		font-size: 14px;
+		line-height: 16px;
+		width: 76%;
 	}
 
-	.close
-	{
-		display: block;
-		float: right;
-		width: 40px;
-		height: 40px;
-		background: url(<%= asset_path 'global-close-button.png' %>) no-repeat scroll right top;
-		text-indent: -9999px;
-		overflow: hidden;
-		cursor: pointer;
+	// ipad portrait
+	@media (min-width: 481px) and (max-width: 1024px) {
+		font-size: 32px;
+		line-height: 44px;
+	}
 
-		// iphone
-		@media (max-width: 480px) {
-			right: -20px;
-		}
+	// ipad landscape
+	@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+		top: 10%;
+		font-size: 32px;
+		line-height: 44px;
+	}
+}
+
+#about-close {
+	display: none;
+	position: absolute;
+	z-index: 9005;
+	top: 20px;
+	right: 20px;
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url(<%= asset_path 'global-close-button.png' %>) no-repeat scroll right top;
+	text-indent: -9999px;
+	overflow: hidden;
+	cursor: pointer;
+
+	// iphone
+	@media (max-width: 480px) {
+		top: 10px;
+		right: 10px;
 	}
 }
