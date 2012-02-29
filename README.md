@@ -12,7 +12,7 @@ In honor of Leap Year, we're raising money for charity by asking people to liter
 
 ### How:
 
-The app uses your phone's accelerometer to find out how long your leap lasted. From that information we determine how high you went. It may not be scientific, but it is fun-and it's for a good cause, so who cares?
+The app uses your phone's accelerometer to find out how long your leap lasted. From that information we determine how high you went.
 
 ## Requirements
 
