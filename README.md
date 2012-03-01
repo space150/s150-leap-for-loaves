@@ -1,18 +1,8 @@
 # Leap for Loaves
 
-## What is this?
+## Post February 29th, 2012 Site
 
-This is Leap for Loaves (http://www.leapforloaves.com), a project by space150. 
-
-We decided that since we have an extra day this year, why not use it to do something good?
-
-### Why:
-
-In honor of Leap Year, we're raising money for charity by asking people to literally leap up and down. Help us reach our goal of 1,000 feet, and we'll donate $1,000 to the Second Harvest food bank.
-
-### How:
-
-The app uses your phone's accelerometer to find out how long your leap lasted. From that information we determine how high you went.
+This branch contains the site in its current form as it exists in leapforloaves.com. To see the code as it was on February 29th, 2012 please see the [master](https://github.com/space150/s150-leap-for-loaves) branch.
 
 ## Requirements
 
