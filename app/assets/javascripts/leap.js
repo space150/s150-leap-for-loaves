@@ -157,7 +157,7 @@ var leap = {
 	scoreUploaded: function ( inches ) {
 		$('#leap-panel').hide();
 		$('#result-panel').show();
-		$('#result-inches').html(inches);
+		$('#result-inches').html( Math.ceil(inches) + '"' );
 	},
 	scoreUploadFailed: function ( error ) {
 		errorDialog.show( this.cookieMessage );
